@@ -8,24 +8,29 @@
 .nav {
     width: 100%;
     min-height: 4vh;
-    background-color: red;
+    // background-color: red;
     &__ul {
         width: 100%;
         max-width: 100em;
         min-height: 4vh;
         margin: auto;
-        background-color: blue;
+        // background-color: blue;
         @include flex (row nowrap, space-around , center);
     }
-    &__li {}
-    &__a {}
+    &__li {
+        font-family: var(--fuenteParrafos);
+        text-transform: uppercase;
+    }
+    &__a {
+        color: var(--blancoTitulos);
+    }
     &__img {}
 }
 
 .inicio {
     width: 100%;
     height: 96vh;
-    background-color: blueviolet;
+    // background-color: blueviolet;
     &__titulos {
         width: 100%;
         min-height: 100%;
@@ -34,7 +39,7 @@
     &__h1 {
         font-size: 4em;
         color: var(--blancoTitulos);
-        font-family: var(--fuenteParrafos);
+        font-family: var(--fuenteTitulos);
     }
     &__h2 {
         color: var(--blancoTitulos);
@@ -42,6 +47,101 @@
     &__img {
         width: 10%;
     }
+}
+
+.about {
+    width: 100%;
+    min-height: 100%;
+    // background-color: brown;
+    &__h2 {}
+    &__informacion {}
+    &__foto {}
+    &__img {}
+    &__parrafo {
+        width: 100%;
+        height: 100vh;
+        // background-color: cadetblue;
+        @include flex (column nowrap , center , center);
+        font-family: var(--fuenteTitulos);
+        text-transform: uppercase;
+        font-size: 3em;
+    }
+    &__tecnologias{
+        color: var(--blancoParrafos);
+    }
+    &__descripcion {
+        width: 100%;
+        max-width: 40em;
+        min-height: 100%;
+        // background-color: darkblue;
+        margin: auto;
+    }
+    &__saludo {
+        font-family: var(--fuenteTitulos);
+        font-size: 2.5em;
+        color: var(--blancoTitulos);
+    }
+    &__estudios {
+        font-family: var(--fuenteParrafos);
+        font-size: 2em;
+        color: var(--blancoParrafos);
+        text-align: center;
+        margin: 2em 0 0 0;
+    }
+
+}
+
+.trabajos {
+    width: 100%;
+    min-height: 100%;
+    // background-color: red;
+    margin: 8em 0 0 0;
+    &__h2 {
+        font-size: 3em;
+        font-family: var(--fuenteTitulos);
+        color: var(--blancoTitulos);
+    }
+}
+
+.portfolio {
+    width: 100%;
+    min-height: 30vh;
+    margin: 8em 0 0 0;
+    &__a {}
+    &__informacion {
+        width: 100%;
+        max-width: 95em;
+        min-height: 100%;
+        @include flex ( row nowrap , space-between , flex-start);
+        // background-color: aqua; 
+        margin: auto;
+    }
+    &__img {}
+    &__diseno {
+        width: 50%;
+    }
+    &__h3 {
+        font-size: 2em;
+        font-family: var(--fuenteTitulos);
+        color: var(--blancoTitulos);
+    }
+    &__proyecto {
+        width: 50%;
+    }
+    &__h2 {
+        font-size: 2em;
+        font-family: var(--fuenteTitulos);
+        color: var(--blancoTitulos);
+    }
+    &__index {
+        font-family: var(--fuenteTitulos);
+        color: var(--blancoParrafos);
+    }
+    &__p {
+        font-size: 1.2em;
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoParrafos);
+    } 
 }
 
 

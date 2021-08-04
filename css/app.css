@@ -106,14 +106,12 @@ body {
 .nav {
   width: 100%;
   min-height: 4vh;
-  background-color: red;
 }
 .nav__ul {
   width: 100%;
   max-width: 100em;
   min-height: 4vh;
   margin: auto;
-  background-color: blue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,10 +125,16 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+.nav__li {
+  font-family: var(--fuenteParrafos);
+  text-transform: uppercase;
+}
+.nav__a {
+  color: var(--blancoTitulos);
+}
 .inicio {
   width: 100%;
   height: 96vh;
-  background-color: blueviolet;
 }
 .inicio__titulos {
   width: 100%;
@@ -152,11 +156,118 @@ body {
 .inicio__h1 {
   font-size: 4em;
   color: var(--blancoTitulos);
-  font-family: var(--fuenteParrafos);
+  font-family: var(--fuenteTitulos);
 }
 .inicio__h2 {
   color: var(--blancoTitulos);
 }
 .inicio__img {
   width: 10%;
+}
+
+.about {
+  width: 100%;
+  min-height: 100%;
+}
+.about__parrafo {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: var(--fuenteTitulos);
+  text-transform: uppercase;
+  font-size: 3em;
+}
+.about__tecnologias {
+  color: var(--blancoParrafos);
+}
+.about__descripcion {
+  width: 100%;
+  max-width: 40em;
+  min-height: 100%;
+  margin: auto;
+}
+.about__saludo {
+  font-family: var(--fuenteTitulos);
+  font-size: 2.5em;
+  color: var(--blancoTitulos);
+}
+.about__estudios {
+  font-family: var(--fuenteParrafos);
+  font-size: 2em;
+  color: var(--blancoParrafos);
+  text-align: center;
+  margin: 2em 0 0 0;
+}
+
+.trabajos {
+  width: 100%;
+  min-height: 100%;
+  margin: 8em 0 0 0;
+}
+.trabajos__h2 {
+  font-size: 3em;
+  font-family: var(--fuenteTitulos);
+  color: var(--blancoTitulos);
+}
+
+.portfolio {
+  width: 100%;
+  min-height: 30vh;
+  margin: 8em 0 0 0;
+}
+.portfolio__informacion {
+  width: 100%;
+  max-width: 95em;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: auto;
+}
+.portfolio__diseno {
+  width: 50%;
+}
+.portfolio__h3 {
+  font-size: 2em;
+  font-family: var(--fuenteTitulos);
+  color: var(--blancoTitulos);
+}
+.portfolio__proyecto {
+  width: 50%;
+}
+.portfolio__h2 {
+  font-size: 2em;
+  font-family: var(--fuenteTitulos);
+  color: var(--blancoTitulos);
+}
+.portfolio__index {
+  font-family: var(--fuenteTitulos);
+  color: var(--blancoParrafos);
+}
+.portfolio__p {
+  font-size: 1.2em;
+  font-family: var(--fuenteParrafos);
+  color: var(--blancoParrafos);
 }
