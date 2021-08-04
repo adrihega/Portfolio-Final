@@ -5,8 +5,15 @@
 }
 
 @font-face {
-	font-family: "Bak-Bak";
-	src: url("../../tipografias/BakBak-Regular.otf");
+	font-family: "Studio Grotesk Bold";
+	src: url("../../tipografias/StudioGrotesk-Bold.ttf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Studio Grotesk Regular";
+	src: url("../../tipografias/StudioGrotesk-Regular.ttf");
+	font-display: swap;
 }
 
 @mixin flex ($a, $b, $c) {
