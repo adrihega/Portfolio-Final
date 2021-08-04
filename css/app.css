@@ -1,0 +1,162 @@
+@charset "UTF-8";
+/* Aquí definimos las Custom properties */
+:root {
+  --negroFondo: #100f0f;
+  --blancoTitulos: white;
+  --blancoParrafos: white;
+  --fuenteTitulos: "Monument Extendend Regular";
+  --fuenteParrafos: "Bak-Bak";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+video {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, strong, a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  display: block;
+}
+
+body {
+  font-family: var(--tipo-principal);
+  font-size: 100%;
+  min-height: 100vh;
+  background-color: var(--blanco);
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Monument Extendend Regular";
+  src: url("../../tipografias/MonumentExtended-Regular.otf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bak-Bak";
+  src: url("../../tipografias/BakBak-Regular.otf");
+}
+.body {
+  background-color: var(--negroFondo);
+  cursor: url("../ssets/punto_cursor.png"), default;
+}
+
+.nav {
+  width: 100%;
+  min-height: 4vh;
+  background-color: red;
+}
+.nav__ul {
+  width: 100%;
+  max-width: 100em;
+  min-height: 4vh;
+  margin: auto;
+  background-color: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.inicio {
+  width: 100%;
+  height: 96vh;
+  background-color: blueviolet;
+}
+.inicio__titulos {
+  width: 100%;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.inicio__h1 {
+  font-size: 4em;
+  color: var(--blancoTitulos);
+  font-family: var(--fuenteParrafos);
+}
+.inicio__h2 {
+  color: var(--blancoTitulos);
+}
+.inicio__img {
+  width: 10%;
+}

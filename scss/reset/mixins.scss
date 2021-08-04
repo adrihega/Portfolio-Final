@@ -1,0 +1,46 @@
+@font-face {
+	font-family: "Monument Extendend Regular";
+	src: url("../../tipografias/MonumentExtended-Regular.otf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Bak-Bak";
+	src: url("../../tipografias/BakBak-Regular.otf");
+}
+
+@mixin flex ($a, $b, $c) {
+    display: flex;
+    flex-flow: $a;
+    justify-content: $b;
+    align-items: $c;
+}
+
+@mixin tfix(){
+	transform: perspective(1px);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+@mixin neo( $estado ,$br , $dis1 ){
+	color			: var(--negro);
+	transition		: all .4s ease;
+	border-radius 	: $br ;
+	
+	@if $estado == 1 {
+		background-color	: var(--blanco);
+		box-shadow			: 
+			$dis1    $dis1    $dis1*2 var(--sombra-ppal),
+			$dis1*-1 $dis1*-1 $dis1*2 var(--sombra-sec),
+			inset 0 0 0 transparent,
+			inset 0 0 0 transparent;
+	}@else if $estado == 2 {
+		background-color	: var(--blanco);
+		box-shadow			: 
+			0 0 0 transparent,
+			0 0 0 transparent,
+			inset $dis1    $dis1    $dis1*2 var(--sombra-ppal),
+			inset $dis1*-1 $dis1*-1 $dis1*2 var(--sombra-sec);
+	}
+    
+}
