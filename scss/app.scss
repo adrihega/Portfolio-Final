@@ -21,36 +21,51 @@
         height: 30em;
         border-radius: 50%;
         filter: blur(4em);
-        background-color: #318d57;
+        background-color: #0abdc6;
         top: 35%;
         left: calc(45% - 15em);
         position: absolute;
         animation: trasladarCirculo1 10s infinite linear;
         z-index: 2;
         opacity: .6;
+        transition: all 1s ease;
+        &.activo {
+            opacity: .5;
+            background-color: #013b56;
+        }
       } &__circulo2{
         width: 30em;
         height: 30em;
         border-radius: 50%;
         filter: blur(4em);
-        background-color: #49a7c4d0;
+        background-color: #e768df;
         top: 32%;
         right: calc(45% - 15em);
         position: absolute;
         animation: trasladarCirculo2 10s infinite linear;
         z-index: 2;
         opacity: .6;
+        transition: all 1s ease;
+        &.activo {
+            opacity: .5;
+            background-color: #711c91;
+        }
     } &__circulo3{
         width: 30em;
         height: 30em;
         border-radius: 50%;
         filter: blur(4em);
-        background-color: #ac2568;
+        background-color: #4bec46;
         top: calc(45% - 15em);
         right: calc(50% - 15em);
         position: absolute;
         animation: trasladarCirculo3 10s infinite linear;
         opacity: .6;
+        transition: all 1s ease;
+        &.activo {
+            opacity: .5;
+            background-color: #01f79b;
+        }
       }
 }
 
@@ -350,21 +365,15 @@
     0% {
         transform: translateX(0) translateY(0);
         opacity: .7; 
-        background-color: #318d57;
+        
     }
     25% {
         transform: translateX(10%) translateY(0);
         opacity: .8;
     }
-    33% {
-        background-color: #49a7c4d0;
-    }
     50% {
         transform: translateX(20%) translateY(0);
         opacity: .9;        
-    }
-    66% {
-        background-color: #318d57;
     }
     75% {
         transform: translateX(10%) translateY(0);
@@ -374,28 +383,21 @@
     100% {
         transform: translateX(0) translateY(0);
         opacity: .7;
-        background-color: #ac2568;
+        
     }
 }
 @keyframes trasladarCirculo2 {
     0% {
         transform: translateX(0) translateY(0);
         opacity: .7;
-        background-color: #49a7c4d0;
     }
     25% {
         transform: translateX(-10%) translateY(0);
         opacity: .8;
     }
-    33% {
-        background-color: #318d57;
-    }
     50% {
         transform: translateX(-20%) translateY(0);
         opacity: .9;
-    }
-    66% {
-        background-color: #ac2568;
     }
     75% {
         transform: translateX(-10%) translateY(0);
@@ -404,7 +406,6 @@
     100% {
         transform: translateX(0) translateY(0);
         opacity: .7;
-        background-color: #49a7c4d0;
     }
 }
 @keyframes trasladarCirculo3 {

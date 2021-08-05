@@ -1,6 +1,9 @@
 'use strict'
 
 const circulos     = document.querySelector('.circulos')
+const circulo1     = document.querySelector('.circulos__circulo1')
+const circulo2     = document.querySelector('.circulos__circulo2')
+const circulo3     = document.querySelector('.circulos__circulo3')
 const nav          = document.querySelector('.nav')
 const menuNav      = document.querySelectorAll('.nav__li')
 const tecnologias  = document.querySelectorAll('.about__tecnologias')
@@ -13,7 +16,7 @@ const tituWork     = document.querySelector('.trabajos__h2')
 
 
 
-let efectoScroll = (elemento) => {
+let efectoScroll  = (elemento) => {
     window.addEventListener('scroll', () => {
         let pixel    = window.scrollY
         let altV     = window.innerHeight
@@ -55,11 +58,34 @@ let efectoScroll2 = (elemento) => {
     })
 }
 
+let efectoScroll3 = (elemento) => {
+    window.addEventListener('scroll', () => {
+        let pixel4    = window.scrollY
+        let distElem4 = window.innerHeight
+        let altV4     = tituWork.offsetTop
+    
+        let calculo4  = distElem4 - (altV4 / 8)
+    
+        if (pixel4 >= calculo4) {
+            elemento.classList.add('activo')
+        } else {
+            elemento.classList.remove('activo')
+        }
+        
+    })
+}
+
 efectoScroll1(saludoAbout)
 
 efectoScroll(tituAbout)
 
 efectoScroll2(infoAboutDer)
+
+efectoScroll3(circulo1)
+
+efectoScroll3(circulo2)
+
+efectoScroll3(circulo3)
 
 tecnologias.forEach(( v , i ) => {
     efectoScroll(tecnologias[i])
@@ -95,17 +121,7 @@ window.addEventListener('scroll', () => {
     }
 })
 
-window.addEventListener('scroll', () => {
-    let pixel4    = window.scrollY
-    let distElem4 = window.innerHeight
-    let altV4     = tituWork.offsetTop
 
-    let calculo4  = distElem4 - (altV4 / 1.5)
-
-    if (pixel4 >= calculo4) {
-        circulos.classList.add('activo')
-    }
-})
 
 
 

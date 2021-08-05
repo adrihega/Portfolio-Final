@@ -127,7 +127,7 @@ body {
   border-radius: 50%;
   -webkit-filter: blur(4em);
           filter: blur(4em);
-  background-color: #318d57;
+  background-color: #0abdc6;
   top: 35%;
   left: calc(45% - 15em);
   position: absolute;
@@ -135,6 +135,12 @@ body {
           animation: trasladarCirculo1 10s infinite linear;
   z-index: 2;
   opacity: 0.6;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.circulos__circulo1.activo {
+  opacity: 0.5;
+  background-color: #013b56;
 }
 .circulos__circulo2 {
   width: 30em;
@@ -142,7 +148,7 @@ body {
   border-radius: 50%;
   -webkit-filter: blur(4em);
           filter: blur(4em);
-  background-color: #49a7c4d0;
+  background-color: #e768df;
   top: 32%;
   right: calc(45% - 15em);
   position: absolute;
@@ -150,6 +156,12 @@ body {
           animation: trasladarCirculo2 10s infinite linear;
   z-index: 2;
   opacity: 0.6;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.circulos__circulo2.activo {
+  opacity: 0.5;
+  background-color: #711c91;
 }
 .circulos__circulo3 {
   width: 30em;
@@ -157,13 +169,19 @@ body {
   border-radius: 50%;
   -webkit-filter: blur(4em);
           filter: blur(4em);
-  background-color: #ac2568;
+  background-color: #4bec46;
   top: calc(45% - 15em);
   right: calc(50% - 15em);
   position: absolute;
   -webkit-animation: trasladarCirculo3 10s infinite linear;
           animation: trasladarCirculo3 10s infinite linear;
   opacity: 0.6;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.circulos__circulo3.activo {
+  opacity: 0.5;
+  background-color: #01f79b;
 }
 
 .nav {
@@ -553,23 +571,16 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #318d57;
   }
   25% {
     -webkit-transform: translateX(10%) translateY(0);
             transform: translateX(10%) translateY(0);
     opacity: 0.8;
   }
-  33% {
-    background-color: #49a7c4d0;
-  }
   50% {
     -webkit-transform: translateX(20%) translateY(0);
             transform: translateX(20%) translateY(0);
     opacity: 0.9;
-  }
-  66% {
-    background-color: #318d57;
   }
   75% {
     -webkit-transform: translateX(10%) translateY(0);
@@ -580,7 +591,6 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #ac2568;
   }
 }
 
@@ -589,23 +599,16 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #318d57;
   }
   25% {
     -webkit-transform: translateX(10%) translateY(0);
             transform: translateX(10%) translateY(0);
     opacity: 0.8;
   }
-  33% {
-    background-color: #49a7c4d0;
-  }
   50% {
     -webkit-transform: translateX(20%) translateY(0);
             transform: translateX(20%) translateY(0);
     opacity: 0.9;
-  }
-  66% {
-    background-color: #318d57;
   }
   75% {
     -webkit-transform: translateX(10%) translateY(0);
@@ -616,7 +619,6 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #ac2568;
   }
 }
 @-webkit-keyframes trasladarCirculo2 {
@@ -624,23 +626,16 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #49a7c4d0;
   }
   25% {
     -webkit-transform: translateX(-10%) translateY(0);
             transform: translateX(-10%) translateY(0);
     opacity: 0.8;
   }
-  33% {
-    background-color: #318d57;
-  }
   50% {
     -webkit-transform: translateX(-20%) translateY(0);
             transform: translateX(-20%) translateY(0);
     opacity: 0.9;
-  }
-  66% {
-    background-color: #ac2568;
   }
   75% {
     -webkit-transform: translateX(-10%) translateY(0);
@@ -651,7 +646,6 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #49a7c4d0;
   }
 }
 @keyframes trasladarCirculo2 {
@@ -659,23 +653,16 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #49a7c4d0;
   }
   25% {
     -webkit-transform: translateX(-10%) translateY(0);
             transform: translateX(-10%) translateY(0);
     opacity: 0.8;
   }
-  33% {
-    background-color: #318d57;
-  }
   50% {
     -webkit-transform: translateX(-20%) translateY(0);
             transform: translateX(-20%) translateY(0);
     opacity: 0.9;
-  }
-  66% {
-    background-color: #ac2568;
   }
   75% {
     -webkit-transform: translateX(-10%) translateY(0);
@@ -686,7 +673,6 @@ body {
     -webkit-transform: translateX(0) translateY(0);
             transform: translateX(0) translateY(0);
     opacity: 0.7;
-    background-color: #49a7c4d0;
   }
 }
 @-webkit-keyframes trasladarCirculo3 {
