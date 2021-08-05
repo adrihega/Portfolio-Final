@@ -2,7 +2,7 @@
 /* Aquí definimos las Custom properties */
 :root {
   --negroFondo: #100f0f;
-  --blancoTitulos: rgba(255, 255, 255, 0.904);
+  --blancoTitulos: rgba(214, 214, 214, 0.904);
   --blancoParrafos: rgba(255, 255, 255, 0.678);
   --fuenteTitulos: "Studio Grotesk Bold";
   --fuenteParrafos: "Studio Grotesk Regular";
@@ -117,7 +117,7 @@ body {
   height: 1.5em;
   border-radius: 50%;
   border: 1px solid white;
-  background-color: transparent;
+  background-color: #f151ce3d;
   position: fixed;
   top: 0;
   left: 0;
@@ -129,81 +129,9 @@ body {
   opacity: 0.7;
 }
 .raton.activo {
-  opacity: 0;
-}
-
-.circulos {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.circulos.activo {
-  opacity: 0;
-}
-.circulos__circulo1 {
-  width: 30em;
-  height: 30em;
-  border-radius: 50%;
-  -webkit-filter: blur(4em);
-          filter: blur(4em);
-  background-color: #f151ce6e;
-  top: 35%;
-  left: calc(45% - 15em);
-  position: absolute;
-  -webkit-animation: trasladarCirculo1 10s infinite linear;
-          animation: trasladarCirculo1 10s infinite linear;
-  z-index: 2;
-  opacity: 0.6;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
-}
-.circulos__circulo1.activo {
-  opacity: 0.5;
-  background-color: #f09652;
-}
-.circulos__circulo2 {
-  width: 30em;
-  height: 30em;
-  border-radius: 50%;
-  -webkit-filter: blur(4em);
-          filter: blur(4em);
-  background-color: #157580;
-  top: 32%;
-  right: calc(45% - 15em);
-  position: absolute;
-  -webkit-animation: trasladarCirculo2 10s infinite linear;
-          animation: trasladarCirculo2 10s infinite linear;
-  z-index: 2;
-  opacity: 0.6;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
-}
-.circulos__circulo2.activo {
-  background-color: #266585;
-  opacity: 0.5;
-}
-.circulos__circulo3 {
-  width: 30em;
-  height: 30em;
-  border-radius: 50%;
-  -webkit-filter: blur(4em);
-          filter: blur(4em);
-  background-color: #eb7e88;
-  top: calc(45% - 15em);
-  right: calc(50% - 15em);
-  position: absolute;
-  -webkit-animation: trasladarCirculo3 10s infinite linear;
-          animation: trasladarCirculo3 10s infinite linear;
-  opacity: 0.6;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
-}
-.circulos__circulo3.activo {
-  background-color: #982860;
-  opacity: 0.5;
+  width: 4em;
+  height: 4em;
+  margin: -2em;
 }
 
 .nav {
@@ -282,42 +210,38 @@ body {
 
 .inicio {
   width: 100%;
-  height: 94vh;
+  height: 100vh;
 }
 .inicio__titulos {
   width: 100%;
-  min-height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 100%;
+  position: relative;
 }
 .inicio__h1 {
-  font-size: 3em;
-  color: var(--negroFondo);
+  position: absolute;
+  top: 25%;
+  left: 60%;
   font-family: var(--fuenteTitulos);
-  z-index: 3;
+  color: var(--blancoTitulos);
+  font-size: 5em;
+  z-index: 1;
 }
 .inicio__h2 {
-  font-size: 2em;
-  color: var(--negroFondo);
+  position: absolute;
+  top: 35%;
+  left: 58%;
   font-family: var(--fuenteTitulos);
-  text-transform: uppercase;
-  margin: 1em 0;
-  z-index: 3;
+  color: var(--blancoTitulos);
+  font-size: 3em;
+  z-index: 1;
 }
 .inicio__img {
-  width: 12%;
-  z-index: 3;
+  width: 100%;
+  height: 60vh;
+  position: fixed;
+  top: calc(50% - 30vh);
+  left: 0;
+  opacity: 0.7;
 }
 
 .about {

@@ -162,6 +162,14 @@ window.addEventListener('scroll', () => {
 
 })
 
+letsWork.addEventListener('mouseover', () => {
+    raton.classList.add('activo')
+})
+
+letsWork.addEventListener('mouseout', () => {
+    raton.classList.remove('activo')
+})
+
 
 
 
