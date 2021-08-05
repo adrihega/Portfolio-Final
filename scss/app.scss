@@ -2,8 +2,27 @@
 
 .body {
     background-color: var(--negroFondo);
-    // cursor: url("../ssets/punto_cursor.png"), default;
+    cursor: url("../assets/punto_cursor.png"), default;
     overflow-x: hidden;
+}
+
+.raton {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.1s linear;
+    pointer-events: none;
+    margin: -.60em;
+    z-index: 10;
+    opacity: .7;
+    &.activo {
+        opacity: 0;
+    }
 }
 
 .circulos {
@@ -21,50 +40,50 @@
         height: 30em;
         border-radius: 50%;
         filter: blur(4em);
-        background-color: #0abdc6;
+        background-color: #f151ce6e;
         top: 35%;
         left: calc(45% - 15em);
         position: absolute;
         animation: trasladarCirculo1 10s infinite linear;
         z-index: 2;
         opacity: .6;
-        transition: all 1s ease;
+        transition: all 1.5s ease;
         &.activo {
             opacity: .5;
-            background-color: #013b56;
+            background-color: #f09652;
         }
       } &__circulo2{
         width: 30em;
         height: 30em;
         border-radius: 50%;
         filter: blur(4em);
-        background-color: #e768df;
+        background-color: #157580;
         top: 32%;
         right: calc(45% - 15em);
         position: absolute;
         animation: trasladarCirculo2 10s infinite linear;
         z-index: 2;
         opacity: .6;
-        transition: all 1s ease;
+        transition: all 1.5s ease;
         &.activo {
+            background-color: #266585;
             opacity: .5;
-            background-color: #711c91;
         }
     } &__circulo3{
         width: 30em;
         height: 30em;
         border-radius: 50%;
         filter: blur(4em);
-        background-color: #4bec46;
+        background-color: #eb7e88;
         top: calc(45% - 15em);
         right: calc(50% - 15em);
         position: absolute;
         animation: trasladarCirculo3 10s infinite linear;
         opacity: .6;
-        transition: all 1s ease;
+        transition: all 1.5s ease;
         &.activo {
+            background-color: #982860;
             opacity: .5;
-            background-color: #01f79b;
         }
       }
 }
@@ -80,9 +99,9 @@
     top: 0;
     left: calc(50% - 40em);
     margin: 1em 0;
-    transition: all 1s ease;
+    transition: all .5s ease;
     &.activo {
-        transform: translateY(-100%);
+        transform: translateY(-101%);
     }
     &__ul {
         width: 100%;
@@ -94,10 +113,9 @@
         width: 25%;
         text-transform: uppercase;
         font-family: var(--fuenteParrafos);
-        opacity: .8;
+        opacity: .5;
         transition: all 1s ease;
         &.activoTexto {
-            font-family: var(--fuenteTitulos);
             opacity: 1;
         }
         &.activoSvg {
@@ -267,55 +285,168 @@
 
 .trabajos {
     width: 100%;
+    max-width: 40em;
     min-height: 100%;
-    // background-color: red;
-    // margin: 8em 0;
+    // background-color: blueviolet;
+    margin: 10em auto;
+    @include flex (column nowrap , center , center);
     &__h2 {
-        font-size: 2em;
+        font-size: 3em;
         font-family: var(--fuenteTitulos);
         color: var(--blancoTitulos);
+        transform: translateY(200%);
+        opacity: 0;
+        transition: all 1s ease;
+        &.activo {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    &__p {
+        font-size: 2em;
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoParrafos);
+        position: relative;
+        cursor: pointer;
+        margin: 1em 0;
+        transform: translateY(200%);
+        opacity: 0;
+        transition: all 1s ease .5s;
+        &.activo {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &:hover {
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 1em;
+                width: 90%;
+                height: 2px;
+                background-color: var(--blancoTitulos);
+                animation: lineaTitu 1s both;
+                transform: scale(0);
+                transform-origin: left;
+            }
+        }
+    }
+}
+
+.lightbox {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--negroFondo);
+    z-index: 6;
+    @include flex (column nowrap , center , center);
+    transform: translateX(101%);
+    transition: all 1s ease;
+    &.activo {
+        transform: translateX(0);
+    }
+    &__boton {
+        cursor: pointer;
+        width: 1em;
+        height: 1em;
+        color: white;
+        // background-color: red;
+        font-size: 4em;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 2%;
+        right: 2%;
     }
 }
 
 .portfolio {
     width: 100%;
-    min-height: 30vh;
-    margin: 8em 0 0 0;
-    &__a {}
-    &__informacion {
-        width: 100%;
-        max-width: 95em;
-        min-height: 100%;
-        @include flex ( row nowrap , space-between , flex-start);
-        // background-color: aqua; 
-        margin: auto;
+    height: calc(100% / 3);
+    @include flex ( row nowrap , center , center );
+    transform: translateY(50%);
+    opacity: 0;
+    // background-color: red;
+    transition: all 1s linear 1s;
+    &.activo {
+        transform: translateY(0);
+        opacity: 1;
     }
-    &__img {}
+    // &__img {
+    //     position: absolute;
+    //     height: 100%;
+    //     z-index: -1;
+    //     filter: blur(3em);
+    //     transition: all 1s ease;
+    //     opacity: 1;
+    // }
     &__diseno {
         width: 50%;
+        height: 100%;
+        @include flex (column nowrap , space-between , flex-start);
     }
     &__h3 {
-        font-size: 2em;
+        font-size: 1.8em;
         font-family: var(--fuenteTitulos);
-        color: var(--blancoTitulos);
+        color: white;
+        // opacity: .6;
+        transition: all 1s ease;
+        margin: 0 0 0 2em;
+        text-transform: uppercase;
+    }
+    &__a {
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoParrafos);
+        margin: 0 0 2em 2em;
+        font-size: 2em;
+        transition: all 1s ease;
+        border: 1px solid var(--blancoParrafos);
+        padding: .3em;
+        border-radius: .1em;
+        position: relative;
+        z-index: 1;
+        transition: all .5s ease;
+        &:hover {
+            transition: all .5s ease;
+            color: transparent;
+            -webkit-text-stroke: .02em var(--colorTextStroke);
+            text-shadow:
+            0 0 1px var(--colorTextStroke),
+            0 0 2px var(--colorTextStroke),
+            0 0 3px var(--colorTextStroke),
+            0 0 4px var(--colorTextStroke),
+            0 0 5px var(--colorTextStroke);
+            color: transparent;
+            border: 1px solid var(--colorTextStroke);
+        }
     }
     &__proyecto {
         width: 50%;
+        height: 100%;
+        transition: all 1s ease;
     }
     &__h2 {
-        font-size: 2em;
+        font-size: 2.5em;
         font-family: var(--fuenteTitulos);
         color: var(--blancoTitulos);
+        // opacity: .6;
+        transition: all 1s ease;
+        text-transform: uppercase;
     }
     &__index {
-        font-family: var(--fuenteTitulos);
+        font-size: .6em;
         color: var(--blancoParrafos);
     }
     &__p {
-        font-size: 1.2em;
+        font-size: 1.5em;
+        font-weight: 400;
+        width: 60%;
         font-family: var(--fuenteParrafos);
         color: var(--blancoParrafos);
-    } 
+        // opacity: .6;
+        transition: all 1s ease;
+    }
 }
 
 .footer {
@@ -332,8 +463,8 @@
         font-family: var(--fuenteParrafos);
         color: white;
         font-size: 1.2em;
-        // opacity: 0;
-        // transform: translateX(101%);
+        opacity: 0;
+        transform: translateX(101%);
         transition: all .5s ease;
         &.activo {
             opacity: .8;
@@ -344,16 +475,16 @@
         width: 30%;
         height: 100%;
         @include flex (row nowrap , flex-end , center);
-        // opacity: 0;
-        // transform: translateX(101%);
-        // transition: all .5s ease .5s;
-        // &.activo {
-        //     opacity: .8;
-        //     transform: translateX(0);
-        // }
+        opacity: 0;
+        transform: translateX(101%);
+        transition: all .5s ease .5s;
+        &.activo {
+            opacity: .8;
+            transform: translateX(0);
+        }
     }
     &__img {
-        width: 100%;
+        width: 15%;
         height: 100%;
         color: white;
     }
@@ -428,6 +559,14 @@
     100% {
         transform: translateX(0) translateY(0);
         opacity: .7;
+    }
+}
+@keyframes lineaTitu {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
     }
 }
 

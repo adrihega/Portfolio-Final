@@ -1,5 +1,6 @@
 'use strict'
 
+const raton        = document.querySelector('.raton')
 const circulos     = document.querySelector('.circulos')
 const circulo1     = document.querySelector('.circulos__circulo1')
 const circulo2     = document.querySelector('.circulos__circulo2')
@@ -8,11 +9,17 @@ const nav          = document.querySelector('.nav')
 const menuNav      = document.querySelectorAll('.nav__li')
 const tecnologias  = document.querySelectorAll('.about__tecnologias')
 const tituAbout    = document.querySelector('.about__h2')
-console.log(tituAbout)
 const saludoAbout  = document.querySelector('.about__saludo')
 const infoAbout    = document.querySelectorAll('.about__estudios')
 const infoAboutDer = document.querySelector('.about__derecha')
 const tituWork     = document.querySelector('.trabajos__h2')
+const letsWork     = document.querySelector('.trabajos__p')
+const lightbox     = document.querySelector('.lightbox')
+const botonLight   = document.querySelector('.lightbox__boton')
+const portfolio = document.querySelector('.portfolio')
+const correoFooter = document.querySelector('.footer__correo')
+const rrssFooter   = document.querySelector('.footer__rrss')
+// const fondoGit     = document.querySelector('.portfolio__imgGit')
 
 
 
@@ -71,7 +78,6 @@ let efectoScroll3 = (elemento) => {
         } else {
             elemento.classList.remove('activo')
         }
-        
     })
 }
 
@@ -79,13 +85,19 @@ efectoScroll1(saludoAbout)
 
 efectoScroll(tituAbout)
 
-efectoScroll2(infoAboutDer)
+efectoScroll1(tituWork)
 
-efectoScroll3(circulo1)
+efectoScroll1(letsWork)
+
+efectoScroll2(infoAboutDer)
 
 efectoScroll3(circulo2)
 
 efectoScroll3(circulo3)
+
+efectoScroll(correoFooter)
+
+efectoScroll(rrssFooter)
 
 tecnologias.forEach(( v , i ) => {
     efectoScroll(tecnologias[i])
@@ -95,10 +107,12 @@ menuNav.forEach(( v , i ) => {
 
     menuNav[i].addEventListener('mouseover', () => {
         menuNav[i].classList.add('activoTexto')
+        raton.classList.add('activo')
     })
 
     menuNav[i].addEventListener('mouseout', () => {
         menuNav[i].classList.remove('activoTexto')
+        raton.classList.remove('activo')
     })
 
 })
@@ -121,7 +135,32 @@ window.addEventListener('scroll', () => {
     }
 })
 
+window.addEventListener('mousemove', (e) => {
+    raton.style.transform = `translateY(${e.clientY}px) translateX(${e.clientX}px)`
+})
 
+letsWork.addEventListener('click', () => {
+    lightbox.classList.add('activo')
+    portfolio.classList.add('activo')
+})
+
+botonLight.addEventListener('click', () => {
+    lightbox.classList.remove('activo')
+    portfolio.classList.remove('activo')
+})
+
+window.addEventListener('scroll', () => {
+    let pixel5    = window.scrollY
+    let distElem5 = window.innerHeight
+    let altV5     = (letsWork.offsetTop === 0) ? tituWork.offsetTop : letsWork.offsetTop
+
+    let calculo5  = distElem5 - (altV5 / 1.5)
+
+    if (pixel5 >= calculo5) {
+        letsWork.classList.add('activo')
+    }
+
+})
 
 
 
