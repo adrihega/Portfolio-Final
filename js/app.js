@@ -1,7 +1,7 @@
 'use strict'
 
 const body         = document.querySelector('#body')
-const cookies      = document.querySelector('#cookies')
+const cookies      = body.querySelector('#cookies')
 const botonCookies = cookies.querySelector('.cookies__button')
 const raton        = body.querySelector('.raton')
 const circulos     = body.querySelector('.circulos')
@@ -184,10 +184,17 @@ window.addEventListener('mousemove', (e) => {
 })
 
 letsWork.addEventListener('click', () => {
-    lightbox.classList.toggle('activo')
-    portfolio.classList.toggle('activo')
-    circulo2.classList.toggle('activoLight')
-    descAbout.classList.toggle('activo')
+    lightbox.classList.add('activo')
+    portfolio.classList.add('activo')
+    circulo2.classList.add('activoLight')
+    descAbout.classList.add('activo')
+})
+
+botonLight.addEventListener('click', () => {
+    lightbox.classList.remove('activo')
+    portfolio.classList.remove('activo')
+    circulo2.classList.remove('activoLight')
+    descAbout.classList.remove('activo')
 })
 
 botonLight.addEventListener('mouseover', () => {

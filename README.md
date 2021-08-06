@@ -1,6 +1,5 @@
 ## Descripción 🏝
-Pequeño proyecto de lista de tareas como forma de practicar Javascript
-No ha sido probado para tener soporte crossbrowsing.
+Trabajo realizado como proyecto final para el bloque de JavaScript en el máster de Diseño Web Front End a través de la Escuela Trazos. 
 
 
 ## Autor ✒️
