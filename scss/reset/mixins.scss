@@ -16,8 +16,6 @@
 	font-display: swap;
 }
 
-
-
 @mixin flex ($a, $b, $c) {
     display: flex;
     flex-flow: $a;
@@ -31,25 +29,8 @@
     backface-visibility: hidden;
 }
 
-@mixin neo( $estado ,$br , $dis1 ){
-	color			: var(--negro);
-	transition		: all .4s ease;
-	border-radius 	: $br ;
-	
-	@if $estado == 1 {
-		background-color	: var(--blanco);
-		box-shadow			: 
-			$dis1    $dis1    $dis1*2 var(--sombra-ppal),
-			$dis1*-1 $dis1*-1 $dis1*2 var(--sombra-sec),
-			inset 0 0 0 transparent,
-			inset 0 0 0 transparent;
-	}@else if $estado == 2 {
-		background-color	: var(--blanco);
-		box-shadow			: 
-			0 0 0 transparent,
-			0 0 0 transparent,
-			inset $dis1    $dis1    $dis1*2 var(--sombra-ppal),
-			inset $dis1*-1 $dis1*-1 $dis1*2 var(--sombra-sec);
-	}
-    
+@mixin neo () {
+    border-radius: 15px;
+    background: linear-gradient(315deg, #292929, #222222);
+    box-shadow: -1.5px -1.5px 4px #3f3f3f;
 }

@@ -1,32 +1,43 @@
 'use strict'
 
-const raton        = document.querySelector('.raton')
-const circulos     = document.querySelector('.circulos')
-const circulo1     = document.querySelector('.circulos__circulo1')
-const circulo2     = document.querySelector('.circulos__circulo2')
-const circulo3     = document.querySelector('.circulos__circulo3')
-const imgFondoIni  = document.querySelector('.inicio__img')
-const nav          = document.querySelector('#nav')
+const body         = document.querySelector('#body')
+const cookies      = document.querySelector('#cookies')
+const botonCookies = cookies.querySelector('.cookies__button')
+const raton        = body.querySelector('.raton')
+const circulos     = body.querySelector('.circulos')
+const circulo1     = body.querySelector('.circulos__circulo1')
+const circulo2     = body.querySelector('.circulos__circulo2')
+const circulo3     = body.querySelector('.circulos__circulo3')
+const imgFondoIni  = body.querySelector('.inicio__img')
+const nav          = body.querySelector('#nav')
 const imgNav       = nav.querySelectorAll('.nav__img')
 const textoNav     = nav.querySelectorAll('.nav__li.texto')
-const about        = document.querySelector('#about')
+const about        = body.querySelector('#about')
+const estAbout     = about.querySelector('.about__estatico')
+const dinAbout     = about.querySelector('.about__dinamico')
 const tecnologias  = about.querySelectorAll('.about__tecnologias')
 const tituAbout    = about.querySelector('.about__h2')
 const saludoAbout  = about.querySelector('.about__saludo')
 const descAbout    = about.querySelector('.about__descripcion')
 const infoAbout    = about.querySelectorAll('.about__estudios')
 const infoAboutDer = about.querySelector('.about__derecha')
-const trabajos     = document.querySelector('#trabajos')
+const trabajos     = body.querySelector('#trabajos')
 const tituWork     = trabajos.querySelector('.trabajos__h2')
 const letsWork     = trabajos.querySelector('.trabajos__p')
-const lightbox     = document.querySelector('#lightbox')
+const lightbox     = body.querySelector('#lightbox')
 const botonLight   = lightbox.querySelector('.lightbox__boton')
-const portfolio    = document.querySelector('.portfolio')
-const footer       = document.querySelector('#footer')
+const flechaIzq    = lightbox.querySelector('.flechaIzq')
+const flechaDer    = lightbox.querySelector('.flechaDer')
+const portfolio    = body.querySelector('.portfolio')
+const enlacePort   = portfolio.querySelector('.portfolio__a')
+const imgPort      = portfolio.querySelector('.portfolio__img')
+const footer       = body.querySelector('#footer')
 const correoFooter = footer.querySelector('.footer__correo')
 const rrssFooter   = footer.querySelector('.footer__rrss')
-
-
+const imgFooter    = footer.querySelectorAll('.footer__img')
+const botonMenu    = body.querySelector('.boton')
+const menu         = body.querySelector('.menu')
+ 
 
 let efectoScroll  = (elemento) => {
     window.addEventListener('scroll', () => {
@@ -86,6 +97,18 @@ let efectoScroll3 = (elemento) => {
     })
 }
 
+let efectoRaton = (elemento) => {
+    elemento.addEventListener('mouseover', () => {
+        raton.classList.add('activo')
+    })
+}
+
+let efectoRaton1 = (elemento) => {
+    elemento.addEventListener('mouseout', () => {
+        raton.classList.remove('activo')
+    })
+}
+
 efectoScroll1(saludoAbout)
 
 efectoScroll(tituAbout)
@@ -94,12 +117,45 @@ efectoScroll1(tituWork)
 
 efectoScroll1(letsWork)
 
+efectoScroll1(estAbout)
+
+efectoScroll1(dinAbout)
+
 efectoScroll2(infoAboutDer)
 
 efectoScroll(correoFooter)
 
 efectoScroll(rrssFooter)
 
+efectoRaton(correoFooter)
+
+efectoRaton(rrssFooter)
+
+efectoRaton(enlacePort)
+
+efectoRaton(flechaIzq)
+
+efectoRaton(flechaDer)
+
+efectoRaton1(correoFooter)
+
+efectoRaton1(rrssFooter)
+
+efectoRaton1(enlacePort)
+
+efectoRaton1(flechaIzq)
+
+efectoRaton1(flechaDer)
+
+portfolio.addEventListener('mouseover', () => {
+    imgPort.classList.add('activo')
+    circulo2.classList.remove('activoLight')
+})
+
+portfolio.addEventListener('mouseout', () => {
+    imgPort.classList.remove('activo')
+    circulo2.classList.add('activoLight')
+})
 
 tecnologias.forEach(( v , i ) => {
     efectoScroll(tecnologias[i])
@@ -128,17 +184,20 @@ window.addEventListener('mousemove', (e) => {
 })
 
 letsWork.addEventListener('click', () => {
-    lightbox.classList.add('activo')
-    portfolio.classList.add('activo')
-    circulo2.classList.add('activoLight')
-    descAbout.classList.add('activo')
+    lightbox.classList.toggle('activo')
+    portfolio.classList.toggle('activo')
+    circulo2.classList.toggle('activoLight')
+    descAbout.classList.toggle('activo')
 })
 
-botonLight.addEventListener('click', () => {
-    lightbox.classList.remove('activo')
-    portfolio.classList.remove('activo')
-    circulo2.classList.remove('activoLight')
-    descAbout.classList.remove('activo')
+botonLight.addEventListener('mouseover', () => {
+    raton.classList.add('activo')
+    botonLight.classList.add('activo')
+})
+
+botonLight.addEventListener('mouseout', () => {
+    raton.classList.remove('activo')
+    botonLight.classList.remove('activo')
 })
 
 window.addEventListener('scroll', () => {
@@ -156,10 +215,12 @@ window.addEventListener('scroll', () => {
 
 letsWork.addEventListener('mouseover', () => {
     raton.classList.add('activo')
+    circulo2.classList.add('activoLight')
 })
 
 letsWork.addEventListener('mouseout', () => {
     raton.classList.remove('activo')
+    circulo2.classList.remove('activoLight')
 })
 
 window.addEventListener('scroll', () => {
@@ -201,7 +262,36 @@ textoNav.forEach(( v , i ) => {
     textoNav[i].addEventListener('mouseout', () => {
         textoNav[i].classList.remove('activo')
         raton.classList.remove('activo')
+        circulo2.classList.remove('activo')
     })
 })
+
+imgFooter.forEach((v , i ) => {
+    imgFooter[i].addEventListener('mouseover', () => {
+        imgFooter[i].classList.add('activo')
+    })
+
+    imgFooter[i].addEventListener('mouseout', () => {
+        imgFooter[i].classList.remove('activo')
+    })
+})
+
+botonMenu.addEventListener('click', () => {
+    menu.classList.toggle('activo')
+    botonMenu.classList.toggle('activo')
+})
+
+// botonCookies.addEventListener('click', () => {
+//     cookies.classList.add('activo')
+// })
+
+
+
+
+
+
+
+
+
 
 
