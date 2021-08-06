@@ -11,7 +11,7 @@
     height: 1.5em;
     border-radius: 50%;
     border: 1px solid white;
-    background-color: #f151ce3d;
+    background-color: #5580a93c;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,10 +27,65 @@
     }
 }
 
+.circulos {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    // opacity: 0;
+    transition: all 1s ease;
+    &__circulo1{
+        width: 25em;
+        height: 25em;
+        border-radius: 50%;
+        filter: blur(4em);
+        background-color: #7995af;
+        top: calc(50% - 15em);
+        left: calc(45% - 15em);
+        position: absolute;
+        animation: trasladarCirculo1 30s infinite linear;
+        z-index: 2;
+        opacity: .6;
+        transition: all 1.5s ease;
+      } &__circulo2{
+        width: 30em;
+        height: 30em;
+        border-radius: 50%;
+        filter: blur(4em);
+        background-color: rgb(197, 88, 30);
+        top: 32%;
+        right: calc(45% - 15em);
+        position: absolute;
+        animation: trasladarCirculo2 30s infinite linear;
+        z-index: 2;
+        opacity: .6;
+        transition: all 1.5s ease;
+        &.activo {
+            background-color: #3772a9;
+        }
+        &.activoLight {
+            background-color:rgb(140, 8, 140);
+        }
+    } &__circulo3{
+        width: 30em;
+        height: 30em;
+        border-radius: 50%;
+        filter: blur(4em);
+        background-color: #929aa2;
+        top: calc(45% - 15em);
+        right: calc(50% - 15em);
+        position: absolute;
+        animation: trasladarCirculo3 30s infinite linear;
+        opacity: .6;
+        transition: all 1.5s ease;
+      }
+}
+
 .nav {
     width: 100%;
     max-width: 80em;
-    min-height: 6vh;
     margin: auto;
     // background-color: red;
     z-index: 6;
@@ -52,13 +107,13 @@
         width: 25%;
         text-transform: uppercase;
         font-family: var(--fuenteParrafos);
-        opacity: .5;
-        transition: all 1s ease;
-        &.activoTexto {
-            opacity: 1;
-        }
-        &.activoSvg {
-            opacity: 1;
+        font-size: 1.1em;
+        transition: all .5s ease;
+        &.texto {
+            &.activo {
+                opacity: 1;
+                font-size: 1.2em;
+            }
         }
     }
     &__rrss {
@@ -74,9 +129,14 @@
     }
     &__img {
         width: 20%;
+        opacity: .7;
+        transition: all .5s ease;
+        &.activo {
+            opacity: 1;
+            width: 22%;
+        }
     }
 }
-
 
 .inicio {
     width: 100%;
@@ -85,25 +145,21 @@
     &__titulos {
         width: 100%;
         height: 100%;
-        position: relative;
+        @include flex (column nowrap , center , center);
     }
     &__h1 {
-        position: absolute;
-        top: 25%;
-        left: 60%;
         font-family: var(--fuenteTitulos);
-        color: var(--blancoTitulos);
+        color: var(--negroFondo);
         font-size: 5em;
-        z-index: 1;
+        opacity: .8;
+        // z-index: 1;
     }
     &__h2 {
-        position: absolute;
-        top: 35%;
-        left: 58%;
         font-family: var(--fuenteTitulos);
         color: var(--blancoTitulos);
         font-size: 3em;
         z-index: 1;
+        opacity: .8;
         // text-transform: uppercase;
     }
     &__img {
@@ -112,7 +168,13 @@
         position: fixed;
         top: calc(50% - 30vh);
         left: 0;
-        opacity: .7;
+        opacity: .6;
+        filter: blur(1em);
+        transition: all 1s ease;
+        &.activo {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
     }
 }
 
@@ -133,6 +195,10 @@
         &.activo {
             opacity: 1;
             transform: translateY(0) translateX(5%);
+        }
+        &.activoArriba {
+            opacity: 0;
+            transform: translateX(10%);
         }
     }
     &__informacion {
@@ -180,6 +246,11 @@
         // background-color: darkblue;
         margin: 15em auto;
         @include flex ( column nowrap , center , space-around);
+        transition: all 1s ease .2s;
+        &.activo {
+            opacity: 0;
+            transform: translateX(-200%);
+        }
     }
     &__saludo {
         // width: 100%;
@@ -283,15 +354,18 @@
 
 .lightbox {
     width: 100%;
-    height: 100vh;
+    max-width: 90em;
+    height: 60vh;
     position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--negroFondo);
+    top: calc(50% - 30vh);
+    left: calc(50% - 45em);
+    background-color: rgb(29, 29, 29);
     z-index: 6;
     @include flex (column nowrap , center , center);
-    transform: translateX(101%);
+    transform: translateX(150%);
     transition: all 1s ease;
+    padding: 2em;
+    backdrop-filter: blur(2em);
     &.activo {
         transform: translateX(0);
     }
@@ -306,29 +380,51 @@
         position: absolute;
         top: 2%;
         right: 2%;
+        z-index: 1;
+    }
+    &__linea {
+        width: 100%;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+        top: calc(50% - 1.5px);
+        left: 0;
+    }
+    &__index {
+        width: 100%;
+        min-height: 20%;
+        background-color: gray;
+        position: relative;
     }
 }
 
 .portfolio {
     width: 100%;
-    height: calc(100% / 3);
+    height: 80%;
     @include flex ( row nowrap , center , center );
     transform: translateY(50%);
     opacity: 0;
     // background-color: red;
     transition: all 1s linear 1s;
+    position: relative;
     &.activo {
         transform: translateY(0);
         opacity: 1;
     }
-    // &__img {
-    //     position: absolute;
-    //     height: 100%;
-    //     z-index: -1;
-    //     filter: blur(3em);
-    //     transition: all 1s ease;
-    //     opacity: 1;
-    // }
+    &__img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        // filter: blur(1em);
+        transition: all 1s ease;
+        opacity: 0;
+        &.activo {
+            opacity: 1;
+        }
+    }
     &__diseno {
         width: 50%;
         height: 100%;
@@ -442,71 +538,55 @@
 
 @keyframes trasladarCirculo1 {
     0% {
-        transform: translateX(0) translateY(0);
-        opacity: .7; 
-        
+        transform: translateX(0) translateY(0) scale(1);      
     }
     25% {
-        transform: translateX(10%) translateY(0);
-        opacity: .8;
+        transform: translateX(10%) translateY(0) scale(1.4);
     }
     50% {
-        transform: translateX(20%) translateY(0);
-        opacity: .9;        
+        transform: translateX(20%) translateY(0) scale(1.6);        
     }
     75% {
-        transform: translateX(10%) translateY(0);
-        opacity: .8;
+        transform: translateX(10%) translateY(0) scale(1.4);
         
     }
     100% {
-        transform: translateX(0) translateY(0);
-        opacity: .7;
+        transform: translateX(0) translateY(0) scale(1);
         
     }
 }
 @keyframes trasladarCirculo2 {
     0% {
-        transform: translateX(0) translateY(0);
-        opacity: .7;
+        transform: translateX(0) translateY(0) scale(1);
     }
     25% {
-        transform: translateX(-10%) translateY(0);
-        opacity: .8;
+        transform: translateX(-10%) translateY(0) scale(1.4);
     }
-    50% {
-        transform: translateX(-20%) translateY(0);
-        opacity: .9;
+    50%  {
+        transform: translateX(-20%) translateY(0) scale(1.2);
     }
     75% {
-        transform: translateX(-10%) translateY(0);
-        opacity: .8;
+        transform: translateX(-10%) translateY(0) scale(1.4);
     }
     100% {
-        transform: translateX(0) translateY(0);
-        opacity: .7;
+        transform: translateX(0) translateY(0) scale(1);
     }
 }
 @keyframes trasladarCirculo3 {
     0% {
-        transform: translateX(0) translateY(0);
-        opacity: .7;
+        transform: translateX(0) translateY(0) scale(1);
     }
     25% {
-        transform: translateX(0) translateY(5%);
-        opacity: .8;
+        transform: translateX(0) translateY(5%) scale(1.4);
     }
     50% {
-        transform: translateX(0) translateY(10%);
-        opacity: .9;
+        transform: translateX(0) translateY(10%) scale(1.6);
     }
     75% {
-        transform: translateX(0) translateY(5%);
-        opacity: .8;
+        transform: translateX(0) translateY(5%) scale(1.4);
     }
     100% {
-        transform: translateX(0) translateY(0);
-        opacity: .7;
+        transform: translateX(0) translateY(0) scale(1);
     }
 }
 @keyframes lineaTitu {

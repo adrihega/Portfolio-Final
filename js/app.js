@@ -5,21 +5,26 @@ const circulos     = document.querySelector('.circulos')
 const circulo1     = document.querySelector('.circulos__circulo1')
 const circulo2     = document.querySelector('.circulos__circulo2')
 const circulo3     = document.querySelector('.circulos__circulo3')
-const nav          = document.querySelector('.nav')
-const menuNav      = document.querySelectorAll('.nav__li')
-const tecnologias  = document.querySelectorAll('.about__tecnologias')
-const tituAbout    = document.querySelector('.about__h2')
-const saludoAbout  = document.querySelector('.about__saludo')
-const infoAbout    = document.querySelectorAll('.about__estudios')
-const infoAboutDer = document.querySelector('.about__derecha')
-const tituWork     = document.querySelector('.trabajos__h2')
-const letsWork     = document.querySelector('.trabajos__p')
-const lightbox     = document.querySelector('.lightbox')
-const botonLight   = document.querySelector('.lightbox__boton')
-const portfolio = document.querySelector('.portfolio')
-const correoFooter = document.querySelector('.footer__correo')
-const rrssFooter   = document.querySelector('.footer__rrss')
-// const fondoGit     = document.querySelector('.portfolio__imgGit')
+const imgFondoIni  = document.querySelector('.inicio__img')
+const nav          = document.querySelector('#nav')
+const imgNav       = nav.querySelectorAll('.nav__img')
+const textoNav     = nav.querySelectorAll('.nav__li.texto')
+const about        = document.querySelector('#about')
+const tecnologias  = about.querySelectorAll('.about__tecnologias')
+const tituAbout    = about.querySelector('.about__h2')
+const saludoAbout  = about.querySelector('.about__saludo')
+const descAbout    = about.querySelector('.about__descripcion')
+const infoAbout    = about.querySelectorAll('.about__estudios')
+const infoAboutDer = about.querySelector('.about__derecha')
+const trabajos     = document.querySelector('#trabajos')
+const tituWork     = trabajos.querySelector('.trabajos__h2')
+const letsWork     = trabajos.querySelector('.trabajos__p')
+const lightbox     = document.querySelector('#lightbox')
+const botonLight   = lightbox.querySelector('.lightbox__boton')
+const portfolio    = document.querySelector('.portfolio')
+const footer       = document.querySelector('#footer')
+const correoFooter = footer.querySelector('.footer__correo')
+const rrssFooter   = footer.querySelector('.footer__rrss')
 
 
 
@@ -33,7 +38,7 @@ let efectoScroll  = (elemento) => {
 
         if (pixel >= calculo) {
         elemento.classList.add('activo')
-        }   
+        }
     })
 }
 
@@ -91,30 +96,13 @@ efectoScroll1(letsWork)
 
 efectoScroll2(infoAboutDer)
 
-efectoScroll3(circulo2)
-
-efectoScroll3(circulo3)
-
 efectoScroll(correoFooter)
 
 efectoScroll(rrssFooter)
 
+
 tecnologias.forEach(( v , i ) => {
     efectoScroll(tecnologias[i])
-})
-
-menuNav.forEach(( v , i ) => {
-
-    menuNav[i].addEventListener('mouseover', () => {
-        menuNav[i].classList.add('activoTexto')
-        raton.classList.add('activo')
-    })
-
-    menuNav[i].addEventListener('mouseout', () => {
-        menuNav[i].classList.remove('activoTexto')
-        raton.classList.remove('activo')
-    })
-
 })
 
 infoAbout.forEach(( v , i ) => {
@@ -142,11 +130,15 @@ window.addEventListener('mousemove', (e) => {
 letsWork.addEventListener('click', () => {
     lightbox.classList.add('activo')
     portfolio.classList.add('activo')
+    circulo2.classList.add('activoLight')
+    descAbout.classList.add('activo')
 })
 
 botonLight.addEventListener('click', () => {
     lightbox.classList.remove('activo')
     portfolio.classList.remove('activo')
+    circulo2.classList.remove('activoLight')
+    descAbout.classList.remove('activo')
 })
 
 window.addEventListener('scroll', () => {
@@ -170,7 +162,46 @@ letsWork.addEventListener('mouseout', () => {
     raton.classList.remove('activo')
 })
 
+window.addEventListener('scroll', () => {
+    let pixel6 = window.scrollY
+    let distElem6 = window.innerHeight
+    let altV6 = tituAbout.offsetTop
 
+    let calculo6 = distElem6 - (altV6 / 1.5)
 
+    if (pixel6 >= calculo6) {
+        circulo2.classList.add('activo')
+    } else {
+        circulo2.classList.remove('activo')
+    }
+})
+
+imgNav.forEach(( v , i ) => {
+    imgNav[i].addEventListener('mouseover', () => {
+        imgNav[i].classList.add('activo')
+        raton.classList.add('activo')
+    })
+})
+
+imgNav.forEach(( v , i ) => {
+    imgNav[i].addEventListener('mouseout', () => {
+        imgNav[i].classList.remove('activo')
+        raton.classList.remove('activo')
+    })
+})
+
+textoNav.forEach(( v , i ) => {
+    textoNav[i].addEventListener('mouseover', () => {
+        textoNav[i].classList.add('activo')
+        raton.classList.add('activo')
+    })
+})
+
+textoNav.forEach(( v , i ) => {
+    textoNav[i].addEventListener('mouseout', () => {
+        textoNav[i].classList.remove('activo')
+        raton.classList.remove('activo')
+    })
+})
 
 

@@ -11,16 +11,22 @@
 
     <div class="raton"></div>
 
-    <nav class="nav">
+    <div class="circulos">
+        <div class="circulos__circulo1"></div>
+        <div class="circulos__circulo2"></div>
+        <div class="circulos__circulo3"></div>
+    </div>
+
+    <nav class="nav" id="nav">
         <ul class="nav__ul">
             <li class="nav__li">
-                <a class="nav__a" href=""><img class="nav__logo" src="" alt="logo"></a>
+                <a class="nav__a" href="#inicio"><img class="nav__logo" src="" alt="logo"></a>
             </li>
-            <li class="nav__li">
-                <a class="nav__a" href="">About</a>
+            <li class="nav__li texto">
+                <a class="nav__a" href="#about">About</a>
             </li>
-            <li class="nav__li">
-                <a class="nav__a" href="">Works</a>
+            <li class="nav__li texto">
+                <a class="nav__a" href="#trabajos">Works</a>
             </li>
             <li class="nav__li">
                 <div class="nav__rrss">
@@ -36,14 +42,11 @@
         </ul>
     </nav>
 
-    <section class="inicio">
+    <section class="inicio" id="inicio">
 
         <div class="inicio__titulos">
             <h1 class="inicio__h1">adrihega</h1>
             <h2 class="inicio__h2">Front End Developer</h2>
-        </div>
-        <div class="inicio__imagenCentro">
-            <img src="assets/mixFondo.png" alt="imgFondo" class="inicio__img">
         </div>
 
     </section>
@@ -86,10 +89,10 @@
     <section class="trabajos" id="trabajos">
         <h2 class="trabajos__h2">WORKS</h2>
         <p class="trabajos__p">let's see my work!</p>
-        <div class="lightbox">    
+        <div class="lightbox" id="lightbox">    
             <div class="lightbox__boton">+</div>     
             <div class="portfolio">
-                <!-- <img src="ssets/prueba_max.png" alt="" class="portfolio__img"> -->
+                <img src="assets/mixFondo.png" alt="" class="portfolio__img">
                 <div class="portfolio__diseno">
                     <h3 class="portfolio__h3">
                         Web Design
@@ -104,6 +107,15 @@
                         Design and programming of my website with HTML5, SCSS and JavaScript.
                     </p>
                 </div>
+            </div>
+            <div class="lightbox__index">
+                
+                <div class="lightox__linea"></div>
+
+                <div class="lightbox__portfolio">
+                    <p class="lightbox__p">01</p>
+                </div>
+
             </div>
         </div>
     </section>
