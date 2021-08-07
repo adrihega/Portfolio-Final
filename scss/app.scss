@@ -384,7 +384,7 @@
         opacity: 0;
         transform: translateY(50%);
         transition: all .5s linear;
-        margin: 1em 0 0 0;
+        margin: 0 0 1em 0;
         &:first-child {
             transition-delay: .1s;
         }
@@ -552,7 +552,7 @@
         color: var(--blancoParrafos);
         text-align: center;
         margin: 2em 0 0 0;
-        transform: translateY(150%) translateX(25%);
+        transform: translateY(150%) translateX(-25%);
         opacity: 0;
         transition: all 1.5s ease;
         letter-spacing: .05em;
@@ -580,21 +580,28 @@
 
 .trabajos {
     width: 100%;
-    height: 100vh;
-    @include flex (column nowrap , center , center);
+    height: 90vh;
+    @include flex (column nowrap , flex-start , flex-start);
     &__h2 {
-        font-size: 3em;
+        font-size: 2em;
         font-family: var(--fuenteTitulos);
         color: var(--blancoTitulos);
-        transform: translateY(200%);
+        text-transform: uppercase;
+        margin: 2em;
         opacity: 0;
+        transform: translateY(100%);
         transition: all 1s ease;
         &.activo {
             opacity: 1;
             transform: translateY(0);
         }
+        &.activoArriba {
+            opacity: 0;
+            transform: translateX(10%);
+        }
     }
     &__p {
+        width: 100%;
         font-size: 2em;
         font-family: var(--fuenteParrafos);
         color: var(--blancoParrafos);
@@ -604,6 +611,7 @@
         transform: translateY(200%);
         opacity: 0;
         transition: all 1s ease .5s;
+        text-align: center;
         &.activo {
             opacity: 1;
             transform: translateY(0);
@@ -613,8 +621,8 @@
                 content: '';
                 position: absolute;
                 bottom: 0;
-                left: 1em;
-                width: 90%;
+                left: 49%;
+                width: 2em;
                 height: 2px;
                 background-color: var(--blancoTitulos);
                 animation: lineaTitu 1s both;
@@ -868,6 +876,125 @@
         transition: all 1s ease;
         @media screen and (max-width: 700px) {
             width: 100%;
+        }
+    }
+}
+
+.portfolioScroll {
+    width: 100%;
+    height: 30vh;
+    @include flex ( row nowrap , center , center );
+    transition: all 1s linear 1s;
+    position: relative;
+    margin: 0 0 2em 0;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: all 1s ease;
+    &.activo {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    &__img {
+        width: 100%;
+        height: 30vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: all .5s ease;
+        &.activo {
+            opacity: .7;
+        }
+    }
+    &__completo {
+        width: 100%;
+        height: 30vh;
+        // background-color: red;
+        @include flex (row nowrap , flex-start , center);
+    }
+    &__diseno {
+        width: 50%;
+        height: 100%;
+        @include flex (row nowrap , flex-start , center);
+        transition: all 1s ease;
+        &.activo {
+            transform: translateY(-40%);
+        }
+    }
+    &__h3 {
+        font-size: 1.8em;
+        font-family: var(--fuenteTitulos);
+        color: var(--blancoTitulos);
+        transition: all 1s ease;
+        margin: 0 0 0 2em;
+        text-transform: uppercase;
+    }
+    &__proyecto {
+        width: 50%;
+        height: 100%;
+        transition: all 1s ease;
+        margin: 3em 0 0 0;
+        @include flex (column nowrap , center , flex-start);
+        &.activo {
+            transform: translateY(-40%);
+        }
+    }
+    &__index {
+        font-size: 1em;
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoParrafos);
+    }
+    &__h2 {
+        font-size: 1.8em;
+        font-family: var(--fuenteTitulos);
+        color: var(--blancoTitulos);
+        transition: all 1s ease;
+        text-transform: uppercase;
+    }
+    &__texto {
+        font-size: 1.2em;
+        font-weight: 400;
+        width: 60%;
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoParrafos);
+        transition: all 1s ease;
+    }
+    &__a {
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoParrafos);
+        margin: 0 0 2em 2em;
+        font-size: 2em;
+        transition: all 1s ease;
+        border: 1px solid var(--blancoParrafos);
+        padding: .3em;
+        border-radius: .1em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        transition: all 1s ease;
+        opacity: 0;
+        transform: translateY(0);
+        &.activo {
+            opacity: 1;
+            transform: translateY(30%);
+        }
+        @media screen and (max-width: 700px) {
+            margin: auto;
+        }
+        &:hover {
+            transition: all .5s ease;
+            color: transparent;
+            -webkit-text-stroke: .02em var(--colorTextStroke);
+            text-shadow:
+            0 0 1px var(--colorTextStroke),
+            0 0 2px var(--colorTextStroke),
+            0 0 3px var(--colorTextStroke),
+            0 0 4px var(--colorTextStroke),
+            0 0 5px var(--colorTextStroke);
+            color: transparent;
+            border: 1px solid var(--colorTextStroke);
         }
     }
 }

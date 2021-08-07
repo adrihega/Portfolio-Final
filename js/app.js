@@ -43,6 +43,11 @@ const botonMenu    = body.querySelector     ('.boton')
 const menu         = body.querySelector     ('#menu')
 const pestMenuWork = menu.querySelectorAll  ('.menu__proyecto')
 const pestanaMenu  = menu.querySelectorAll  ('.menu__pestana')
+const portfolioScroll = body.querySelector('.portfolioScroll')
+const disenoPortScroll = portfolioScroll.querySelector('.portfolioScroll__diseno')
+const proyectoPortScroll = portfolioScroll.querySelector('.portfolioScroll__proyecto')
+const imgPortScroll = portfolioScroll.querySelector('.portfolioScroll__img')
+const enlacePortScroll = portfolioScroll.querySelector('.portfolioScroll__a')
 
 let efectoScroll  = (elemento) => {
     window.addEventListener('scroll', () => {
@@ -111,7 +116,7 @@ let efectoScrollVuelta = (elemento) => {
         let pixel7    = window.scrollY
         let distElem7 = elemento.offsetTop
 
-        let calculo7  = (distElem7 / 1.15)
+        let calculo7  = (distElem7 / 1.11)
 
         if(pixel7 >= calculo7) {
             elemento.classList.add('activoVuelta')
@@ -145,6 +150,8 @@ let efectoRaton1 = (elemento) => {
         raton.classList.remove('activo')
     })
 }
+
+efectoScroll(portfolioScroll)
 
 efectoScrollVuelta(h1Inicio)
 
@@ -290,6 +297,7 @@ letsWork.addEventListener('click', () => {
     portfolio.classList.add('activo')
     circulo2.classList.add('activoLight')
     descAbout.classList.add('activo')
+    portfolioScroll.classList.remove('activo')
 })
 
 botonLight.addEventListener('click', () => {
@@ -297,6 +305,7 @@ botonLight.addEventListener('click', () => {
     portfolio.classList.remove('activo')
     circulo2.classList.remove('activoLight')
     descAbout.classList.remove('activo')
+    portfolioScroll.classList.add('activo')
 })
 
 botonLight.addEventListener('mouseover', () => {
@@ -366,6 +375,22 @@ portfolio.addEventListener('mouseout', () => {
     enlacePort.classList.remove('activo')
     proyectoPort.classList.remove('activo')
     disenoPort.classList.remove('activo')
+})
+
+portfolioScroll.addEventListener('mouseover', () => {
+    imgPortScroll.classList.add('activo')
+    disenoPortScroll.classList.add('activo')
+    proyectoPortScroll.classList.add('activo')
+    enlacePortScroll.classList.add('activo')
+    circulo2.classList.add('activoLight')
+})
+
+portfolioScroll.addEventListener('mouseout', () => {
+    imgPortScroll.classList.remove('activo')
+    disenoPortScroll.classList.remove('activo')
+    proyectoPortScroll.classList.remove('activo')
+    enlacePortScroll.classList.remove('activo')
+    circulo2.classList.remove('activoLight')
 })
 
 
