@@ -122,8 +122,8 @@
 
 .menu {
     width: 100%;
-    max-width: 100%;
     height: 100vh;
+    background-color: black;
     position: fixed;
     top: 0;
     right: 0;
@@ -143,71 +143,57 @@
     &__nav {
         width: 100%;
         height: 100vh;
-        background-color: rgb(4, 4, 4);
-        z-index: 5;
+        // background-color: red;
     }
     &__ul {
         width: 100%;
         height: 100%;
-        @include flex (column nowrap , center , center);
+        @include flex (column nowrap , center, center); 
     }
     &__li {
-        width: 25%;
-        height: 100%;
-        // background-color: rgba(255, 217, 0, 0.705);
-        color: white;
-        text-align: center;
-        font-family: "Monument Extendend Regular";
-        text-transform: uppercase;
+        width: 100%;
+        height: 100%;  
+        @include flex (row nowrap , center, center); 
+    }
+    &__a {
+        font-family: var(--fuenteTitulos);
         font-size: 2em;
-        @include flex (row nowrap, center, center);
-        opacity: .5;
-        &:hover {
-            opacity: 1;
-        }
+        text-transform: uppercase;
+        color: var(--blancoTitulos);
     }
     &__pestana {
-        width: 25%;
+        width: 100%;
         height: 100%;
-        min-height: 1em;
+        @include flex (column nowrap , center, center);
         // background-color: red;
-        text-align: center;
-        font-family: "Monument Extendend Regular";
-        text-transform: uppercase;
-        font-size: 2em;
-        @include flex (column nowrap, center, center);
-        transition: all .5s ease;
-        opacity: .5;
-        &:hover {
-            opacity: 1;
-        }
-        &.activo {
-            min-height: 4em;
-        }
     }
-    &__titulo {
-        transition: all .5s ease;
-        color: white;
-        &.activo {
-            margin: .7em 0 0 0;
-        }
-    }
-    &__proyectos {
-        height: 0;
+    &__titulo {}
+    &__proyecto {
+        height: 0vh;
         overflow: hidden;
-        font-size: .5em;
+        opacity: 0;
         transition: all .5s ease;
-        color: white;
+        @include flex (row nowrap , space-around , center);
         &.activo {
-            height: 4em;
-            margin: 1em 0 0 0;
+            height: 5vh;
+            opacity: 1;
+            margin: 2em 0;
         }
     }
-    &__h3 {
-        
-        &::after {
-            content: '';
-        }
+    &__enlaceGit {
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoTitulos);
+        text-align: center;
+        font-size: 2em;
+    }
+    &__enlaceRrss {
+        font-family: var(--fuenteParrafos);
+        color: var(--blancoTitulos);
+        text-align: center;
+        font-size: 2em;
+    }
+    &__img {
+        width: 10%;
     }
 }
 
@@ -339,7 +325,11 @@
         font-size: 2.5em;
         opacity: .8;
         text-transform: uppercase;
-        // z-index: 1;
+        transition: all .75s ease;
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateX(100%);
+        }
     }
     &__h2 {
         font-family: var(--fuenteParrafos);
@@ -348,7 +338,11 @@
         z-index: 1;
         opacity: .8;
         margin: 1em 0 0 0;
-        // text-transform: uppercase;
+        transition: all .5s ease;
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
     }
 }
 
@@ -392,19 +386,19 @@
         transition: all .5s linear;
         margin: 1em 0 0 0;
         &:first-child {
-            transition-delay: .25s;
+            transition-delay: .1s;
         }
         &:nth-child(2) {
-            transition-delay: .5s;
+            transition-delay: .2s;
         }
         &:nth-child(3) {
-            transition-delay: .75s;
+            transition-delay: .25s;
         }
         &:nth-child(4) {
-            transition-delay: 1s;
+            transition-delay: .3s;
         }
         &:nth-child(5) {
-            transition-delay: 1.25s;
+            transition-delay: .35s;
         }
         @media screen and (max-width: 1024px) {
             font-size: 2.5em;
@@ -418,6 +412,10 @@
         &.activo {
             transform: translateY(0);
             opacity: 1;
+        }
+        &.activoVuelta {
+            transform: translateY(-50%); 
+            opacity: 0;
         }
     }
     &__adobe {
@@ -448,6 +446,10 @@
             opacity: 1;
             transform: translateX(0);
         }
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateX(-30%);
+        }
     }
     &__dinamico {
         font-family: var(--fuenteTitulos);
@@ -473,6 +475,10 @@
             opacity: 1;
             transform: translateX(0);
         }
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateX(30%);
+        }
     }
     &__descripcion {
         width: 100%;
@@ -495,11 +501,15 @@
         color: var(--blancoTitulos);
         transform: translateY(200%) translateX(40%);
         opacity: 0;
-        transition: all .5s ease;
+        transition: all 1s ease;
         margin: auto;
         &.activo {
             opacity: 1;
             transform: translateY(0) translateX(0);
+        }
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateY(-30%) translateX(30%);
         }
     }
     &__estudios {
@@ -515,7 +525,7 @@
         transition: all 1.5s ease;
         letter-spacing: .05em;
         @media screen and (max-width: 1150px) {
-            transform: translateY(150%) translateX(0);
+            transform: translateY(150%);
         }
         @media screen and (max-width: 500px) {
             font-size: .9em;
@@ -524,10 +534,14 @@
         }
         &.activoIzq {
             opacity: 1;
-            transform: translateY(0) translateX(-25%);
+            transform: translateY(0) translateX(0);
             @media screen and (max-width: 1150px) {
                 transform: translateX(0);
             }
+        }
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateX(100%);
         }
     }
     &__derecha {
@@ -552,20 +566,21 @@
         }
         &.activoIzq {
             opacity: 1;
-            transform: translateY(0) translateX(25%);
+            transform: translateY(0) translateX(0);
             @media screen and (max-width: 1150px) {
                 transform: translateX(0);
             }
+        }
+        &.activoVuelta {
+            opacity: 0;
+            transform: translateX(100%);
         }
     }
 }
 
 .trabajos {
     width: 100%;
-    max-width: 40em;
-    min-height: 100%;
-    // background-color: blueviolet;
-    margin: 10em auto;
+    height: 100vh;
     @include flex (column nowrap , center , center);
     &__h2 {
         font-size: 3em;
@@ -756,8 +771,12 @@
     &__diseno {
         width: 50%;
         height: 100%;
-        @include flex (column nowrap , space-between , flex-start);
+        @include flex (column nowrap , center , flex-start);
         margin: 3em 0 0 0;
+        transition: all 1s ease;
+        &.activo {
+            transform: translateY(-45%);
+        }
     }
     &__h3 {
         font-size: 1.8em;
@@ -783,9 +802,17 @@
         border: 1px solid var(--blancoParrafos);
         padding: .3em;
         border-radius: .1em;
-        position: relative;
+        position: absolute;
+        bottom: 0;
+        left: 0;
         z-index: 1;
-        transition: all .5s ease;
+        transition: all 1s ease;
+        opacity: 0;
+        transform: translateY(0);
+        &.activo {
+            opacity: 1;
+            transform: translateY(5em);
+        }
         @media screen and (max-width: 700px) {
             margin: auto;
         }
@@ -808,27 +835,31 @@
         height: 100%;
         transition: all 1s ease;
         margin: 3em 0 0 0;
+        @include flex (column nowrap , center , flex-start);
+        &.activo {
+            transform: translateY(-40%);
+        }
     }
     &__h2 {
-        font-size: 1em;
+        font-size: 1.8em;
         font-family: var(--fuenteTitulos);
         color: var(--blancoParrafos);
         // opacity: .6;
         transition: all 1s ease;
         text-transform: uppercase;
         @media screen and (max-width: 1024px) {
-            font-size: 2em;
+            font-size: 1.2em;
         }
     }
     &__index {
-        font-size: .5em;
+        font-size: .8em;
         color: var(--blancoParrafos);
         @media screen and (max-width: 1024px) {
             font: .3em;
         }
     }
     &__p {
-        font-size: 1em;
+        font-size: 1.2em;
         font-weight: 400;
         width: 60%;
         font-family: var(--fuenteParrafos);
