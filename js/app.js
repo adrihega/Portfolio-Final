@@ -11,7 +11,7 @@ const circulo3           = body.           querySelector   ('.circulos__circulo3
 const nav                = body.           querySelector   ('#nav')
 const imgNav             = nav.            querySelectorAll('.nav__img')
 const textoNav           = nav.            querySelectorAll('.nav__li.texto')
-const inicio             = document.       querySelector   ('#inicio')
+const inicio             = body.       querySelector   ('#inicio')
 const h1Inicio           = inicio.         querySelector   ('.inicio__h1')
 const h2Inicio           = inicio.         querySelector   ('.inicio__h2')
 const about              = body.           querySelector   ('#about')
@@ -31,9 +31,11 @@ const rrssFooter         = footer.         querySelector   ('.footer__rrss')
 const imgFooter          = footer.         querySelectorAll('.footer__img')
 const botonMenu          = body.           querySelector   ('.boton')
 const menu               = body.           querySelector   ('#menu')
+const enlaceMenu         = menu.           querySelectorAll('.menu__a')
 const pestMenuWork       = menu.           querySelector   ('.menu__proyecto')
 const pestMenuContact    = menu.           querySelector   ('.menu__proyectoContacto')
-const pestanaMenu        = menu.           querySelectorAll('.menu__pestana')
+const pestanaMenuWork    = menu.           querySelector   ('.menu__pestanaWork')
+const pestanaMenuContact = menu.           querySelector   ('.menu__pestanaContacto')
 const portfolioScroll    = body.           querySelector   ('.portfolioScroll')
 const disenoPortScroll   = portfolioScroll.querySelector   ('.portfolioScroll__diseno')
 const proyectoPortScroll = portfolioScroll.querySelector   ('.portfolioScroll__proyecto')
@@ -268,17 +270,26 @@ imgFooter.forEach((v , i ) => {
     })
 })
 
-pestanaMenu.forEach(( v , i ) => {
-    pestanaMenu[i].addEventListener('mouseover', () => {
-        pestMenuWork.classList.add('activo')
-        pestMenuContact.classList.add('activo')
-    })
+pestanaMenuContact.addEventListener('mouseover', () => {
+    pestMenuContact.classList.add('activo')
 })
 
-pestanaMenu.forEach(( v , i ) => {
-    pestanaMenu[i].addEventListener('mouseout', () => {
-        pestMenuWork.classList.remove('activo')
-        pestMenuContact.classList.remove('activo')
+pestanaMenuContact.addEventListener('mouseout', () => {
+    pestMenuContact.classList.remove('activo')
+})
+
+pestanaMenuWork.addEventListener('mouseover', () => {
+    pestMenuWork.classList.add('activo')
+})
+
+pestanaMenuWork.addEventListener('mouseout', () => {
+    pestMenuWork.classList.remove('activo')
+})
+
+enlaceMenu.forEach((v,i)=> {
+    enlaceMenu[i].addEventListener('click', () => {
+        menu.classList.remove('activo')
+        botonMenu.classList.remove('activo')
     })
 })
 
@@ -301,14 +312,26 @@ window.addEventListener('scroll', () => {
 })
 
 
+window.addEventListener('scroll', () => {
+    let pixel11    = window.scrollY
+    let distElem11 = tituAbout.offsetTop
+
+    if (pixel11 >= distElem11 / 1.2) {
+        nav.classList.add('activo')
+    } else {
+        nav.classList.remove('activo')
+    }
+})
+
+
 botonMenu.addEventListener('click', () => {
     menu.classList.toggle('activo')
     botonMenu.classList.toggle('activo')
 })
 
-// botonCookies.addEventListener('click', () => {
-//     cookies.classList.add('activo')
-// })
+botonCookies.addEventListener('click', () => {
+    cookies.classList.add('activo')
+})
 
 portfolioScroll.addEventListener('mouseover', () => {
     imgPortScroll.classList.add('activo')

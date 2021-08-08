@@ -9,29 +9,29 @@
     // }
 }
 
-// .cookies {
-//     width: 100%;
-//     max-width: 30em;
-//     height: 20vh;
-//     background-color: gray;
-//     position: fixed;
-//     bottom: 20%;
-//     right: 0;
-//     @include flex (column nowrap , space-around , center);
-//     transform: translateX(0);
-//     transition: all .5s ease;
-//     z-index: 1;
-//     &.activo {
-//         transform: translateX(101%);
-//     }
-//     &__p {
+.cookies {
+    width: 100%;
+    max-width: 30em;
+    height: 20vh;
+    background-color: gray;
+    position: fixed;
+    bottom: 20%;
+    right: 0;
+    @include flex (column nowrap , space-around , center);
+    transform: translateX(0);
+    transition: all .5s ease;
+    z-index: 1;
+    &.activo {
+        transform: translateX(101%);
+    }
+    &__p {
 
-//     }
-//     &__button {
-//         background-color: green;
-//         padding: .5em 1.2em;
-//     }
-// }
+    }
+    &__button {
+        background-color: green;
+        padding: .5em 1.2em;
+    }
+}
 
 .raton {
     width: 1.5em;
@@ -80,10 +80,6 @@
         z-index: 2;
         opacity: .6;
         transition: all 1.5s ease;
-        @media screen and (max-width: 414px) {
-            width: 20em;
-            height: 20em;
-        }
       } &__circulo2{
         width: 30em;
         height: 30em;
@@ -121,10 +117,6 @@
         animation: trasladarCirculo3 30s infinite linear;
         opacity: .6;
         transition: all 1.5s ease;
-        @media screen and (max-width: 414px) {
-            width: 20em;
-            height: 20em;
-        }
       }
 }
 
@@ -134,15 +126,15 @@
     background-color: black;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 5;
     opacity: 1;
-    transform: translateX(50%);
+    transform: translateX(-101%);
     opacity: 0;
     transition: all 1s ease;
     display: none;
     @media screen and (max-width: 1024px) {
-        display: flex;
+        display: block;
     }
     &.activo {
         transform: translateX(0);
@@ -168,7 +160,12 @@
         text-transform: uppercase;
         color: var(--blancoTitulos);
     }
-    &__pestana {
+    &__pestanaWork {
+        width: 100%;
+        height: 100%;
+        @include flex (column nowrap , center, center);
+    }
+    &__pestanaContacto {
         width: 100%;
         height: 100%;
         @include flex (column nowrap , center, center);
@@ -225,7 +222,7 @@
     transition: all 1s ease;
     display: none;
     @media screen and (max-width: 1024px) {
-        display: flex;
+        display: block;
     }
     &.activo {
         &::before {
@@ -318,19 +315,6 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    // &__circulo {
-    //     width: 100%;
-    //     max-width: 30%;
-    //     position: absolute;
-    //     top: 23.5%;
-    //     left: calc(50% - 15%);
-    //     opacity: .5;
-    //     animation: rotarCirc 30s infinite linear;
-    //     z-index: -1;
-    //     @media screen and (max-width: 1900px) {
-    //         display: none;
-    //     }
-    // }
     &__titulos {
         width: 100%;
         height: 100%;
@@ -658,7 +642,7 @@
     height: 30vh;
     transition: all 1s linear 1s;
     position: relative;
-    margin: 0 0 2em 0;
+    // margin: 0 0 2em 0;
     transform: translateY(50%);
     opacity: 0;
     transition: all 1s ease;
@@ -736,7 +720,7 @@
         transition: all 1s ease;
         margin: 3em 0 0 0;
         @include flex (column nowrap , center , flex-start);
-        &.activoMovil {
+        &.activo {
             transform: translateY(-40%);
         }
         @media screen and (max-width: 700px) {
@@ -1121,6 +1105,7 @@
         transform: translateX(0) translateY(0) scale(1);
     }
 }
+
 @keyframes lineaTitu {
     from {
         transform: scale(0);
