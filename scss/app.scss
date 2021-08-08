@@ -4,6 +4,9 @@
     background-color: var(--negroFondo);
     cursor: url("../assets/punto_cursor.png"), default;
     overflow-x: hidden;
+    // @media screen and (max-width: 700px) {
+    //     cursor: none;
+    // }
 }
 
 // .cookies {
@@ -50,6 +53,9 @@
         margin: -2em;
         background-color: transparent;
     }
+    @media screen and (max-width: 700px) {
+        opacity: 0;
+    }
 }
 
 .circulos {
@@ -60,6 +66,7 @@
     left: 0;
     z-index: -1;
     transition: all 1s ease;
+    // overflow-x: hidden;
     &__circulo1{
         width: 25em;
         height: 25em;
@@ -90,10 +97,6 @@
         z-index: 2;
         opacity: .5;
         transition: all .5s ease;
-        @media screen and (max-width: 414px) {
-            width: 20em;
-            height: 20em;
-        }
         &.activo {
             background-color: var(--circuloAbout);
         }
@@ -175,9 +178,21 @@
         overflow: hidden;
         opacity: 0;
         transition: all .5s ease;
+        @include flex (column nowrap , space-around , center);
+        &.activo {
+            height: 10vh;
+            opacity: 1;
+            margin: 2em 0;
+        }
+    }
+    &__proyectoContacto {
+        height: 0vh;
+        overflow: hidden;
+        opacity: 0;
+        transition: all .5s ease;
         @include flex (row nowrap , space-around , center);
         &.activo {
-            height: 5vh;
+            height: 10vh;
             opacity: 1;
             margin: 2em 0;
         }
@@ -195,7 +210,7 @@
         font-size: 2em;
     }
     &__img {
-        width: 10%;
+        width: 30%;
     }
 }
 
@@ -582,17 +597,20 @@
 
 .trabajos {
     width: 100%;
-    height: 90vh;
+    min-height: 100%;
     @include flex (column nowrap , flex-start , flex-start);
     &__h2 {
         font-size: 2em;
         font-family: var(--fuenteTitulos);
         color: var(--blancoTitulos);
         text-transform: uppercase;
-        margin: 2em;
+        margin: 0 0 2em 2em;
         opacity: 0;
         transform: translateY(100%);
         transition: all 1s ease;
+        @media screen and (max-width: 700px) {
+            margin: 0 0 1em 1em;
+        }
         &.activo {
             opacity: 1;
             transform: translateY(0);
@@ -635,256 +653,9 @@
     }
 }
 
-.lightbox {
-    width: 100%;
-    max-width: 90em;
-    height: 100vh;
-    max-height: 35em;
-    position: fixed;
-    top: calc(50% - 30vh);
-    left: calc(50% - 45em);
-    background-color: rgba(0, 0, 0, 0.83);
-    z-index: 6;
-    @include flex (column nowrap , center , center);
-    transform: translateX(150%);
-    transition: all 1s ease;
-    padding: 1em;
-    backdrop-filter: blur(.5em);
-    @media screen and (max-width: 1024px) {
-        max-width: 50em;
-        left: calc(50% - 25em);
-    }
-    @media screen and (max-width: 700px) {
-        width: 100%;
-        min-height: 100vh;
-        top: 0;
-        left: 0;
-    }
-    &.activo {
-        transform: translateX(0);
-    }
-    &__boton {
-        cursor: pointer;
-        width: 1em;
-        height: 1em;
-        color: white;
-        // background-color: red;
-        font-size: 4em;
-        transform: rotate(45deg);
-        position: absolute;
-        top: -12%;
-        right: calc(50% - .5em);
-        z-index: 1;
-        opacity: .5;
-        transition: all .5s ease;
-        &.activo {
-            opacity: 1;    
-        }
-        @media screen and (max-width: 700px) {
-            top: 0;
-            left: 50%;
-        }
-
-    }
-    &__index {
-        width: 100%;
-        height: 20%;
-        // background-color: gray;
-        @include flex (column nowrap , center , center);
-        position: relative;
-    }
-    &__p {
-        color: var(--blancoParrafos);
-        text-align: center;
-        font-family: var(--fuenteParrafos);
-        font-size: 1.2em;
-        margin: .5em 0;
-    }
-}
-
-.linea {
-    width: 100%;
-    max-width: 70em;
-    height: 1px;
-    margin: auto;
-    background-color: var(--blancoParrafos);
-    // border: 1px solid black;
-    @media screen and (max-width: 1024px) {
-        max-width: 45em;
-    }
-    @media screen and (max-width: 850px) {
-        max-width: 35em;
-    }
-}
-
-.lineaV {
-    width: 2px;
-    height: 15px;
-    position: absolute;
-    top: calc(50% - 7.5px);
-    left: calc(50% - 1px);
-    background-color: var(--blancoParrafos);
-}
-
-.flechaIzq {
-    width: 100%;
-    max-width: 1em;
-    position: absolute;
-    top: calc(50% - .5em);
-    left: 5%;
-    color: white;
-    cursor: pointer;
-}
-
-.flechaDer {
-    width: 100%;
-    max-width: 1em;
-    position: absolute;
-    top: calc(50% - .5em);
-    right: 5%;
-    color: white;
-    cursor: pointer;
-}
-
-.portfolio {
-    width: 100%;
-    height: 80%;
-    @include flex ( row nowrap , center , center );
-    transform: translateY(50%);
-    opacity: 0;
-    // background-color: red;
-    transition: all 1s linear 1s;
-    position: relative;
-    @media screen and (max-width: 700px) {
-        @include flex ( column nowrap , center , center );
-        
-    }
-    &.activo {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    &__img {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        // filter: blur(1em);
-        transition: all 1s ease;
-        opacity: 0;
-        &.activo {
-            opacity: .6;
-        }
-    }
-    &__diseno {
-        width: 50%;
-        height: 100%;
-        @include flex (column nowrap , center , flex-start);
-        margin: 3em 0 0 0;
-        transition: all 1s ease;
-        &.activo {
-            transform: translateY(-45%);
-        }
-    }
-    &__h3 {
-        font-size: 1.8em;
-        font-family: var(--fuenteTitulos);
-        color: white;
-        // opacity: .6;
-        transition: all 1s ease;
-        margin: 0 0 0 2em;
-        text-transform: uppercase;
-        @media screen and (max-width: 1024px) {
-            font-size: 1.2em;
-        }
-        @media screen and (max-width: 700px) {
-            margin: auto;
-        }
-    }
-    &__a {
-        font-family: var(--fuenteParrafos);
-        color: var(--blancoParrafos);
-        margin: 0 0 2em 2em;
-        font-size: 2em;
-        transition: all 1s ease;
-        border: 1px solid var(--blancoParrafos);
-        padding: .3em;
-        border-radius: .1em;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        transition: all 1s ease;
-        opacity: 0;
-        transform: translateY(0);
-        &.activo {
-            opacity: 1;
-            transform: translateY(5em);
-        }
-        @media screen and (max-width: 700px) {
-            margin: auto;
-        }
-        &:hover {
-            transition: all .5s ease;
-            color: transparent;
-            -webkit-text-stroke: .02em var(--colorTextStroke);
-            text-shadow:
-            0 0 1px var(--colorTextStroke),
-            0 0 2px var(--colorTextStroke),
-            0 0 3px var(--colorTextStroke),
-            0 0 4px var(--colorTextStroke),
-            0 0 5px var(--colorTextStroke);
-            color: transparent;
-            border: 1px solid var(--colorTextStroke);
-        }
-    }
-    &__proyecto {
-        width: 50%;
-        height: 100%;
-        transition: all 1s ease;
-        margin: 3em 0 0 0;
-        @include flex (column nowrap , center , flex-start);
-        &.activo {
-            transform: translateY(-40%);
-        }
-    }
-    &__h2 {
-        font-size: 1.8em;
-        font-family: var(--fuenteTitulos);
-        color: var(--blancoParrafos);
-        // opacity: .6;
-        transition: all 1s ease;
-        text-transform: uppercase;
-        @media screen and (max-width: 1024px) {
-            font-size: 1.2em;
-        }
-    }
-    &__index {
-        font-size: .8em;
-        color: var(--blancoParrafos);
-        @media screen and (max-width: 1024px) {
-            font: .3em;
-        }
-    }
-    &__p {
-        font-size: 1.2em;
-        font-weight: 400;
-        width: 60%;
-        font-family: var(--fuenteParrafos);
-        color: var(--blancoParrafos);
-        // opacity: .6;
-        transition: all 1s ease;
-        @media screen and (max-width: 700px) {
-            width: 100%;
-        }
-    }
-}
-
 .portfolioScroll {
     width: 100%;
     height: 30vh;
-    @include flex ( row nowrap , center , center );
     transition: all 1s linear 1s;
     position: relative;
     margin: 0 0 2em 0;
@@ -895,9 +666,13 @@
         opacity: 1;
         transform: translateY(0);
     }
+    @media screen and (max-width: 700px) {
+        min-height: 50vh;
+        margin: 0;
+    }
     &__img {
         width: 100%;
-        height: 30vh;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
@@ -907,12 +682,26 @@
         &.activo {
             opacity: .7;
         }
+        @media screen and (max-width: 700px) {
+            height: 100%;
+            opacity: 0;
+            transition: all 2s ease 1s;
+            &.activo {
+                opacity: 0;
+            }
+            &.activoMovil {
+                opacity: .7;
+            }
+        }
     }
     &__completo {
         width: 100%;
         height: 30vh;
         // background-color: red;
         @include flex (row nowrap , flex-start , center);
+        @media screen and (max-width: 700px) {
+            @include flex (column nowrap , center , center );
+        }
     }
     &__diseno {
         width: 50%;
@@ -922,6 +711,13 @@
         &.activo {
             transform: translateY(-40%);
         }
+        @media screen and (max-width: 700px) {
+            @include flex (column nowrap , center , center );
+            width: 100%;
+            &.activo {
+                transform: translateY(0);
+            }
+        }
     }
     &__h3 {
         font-size: 1.8em;
@@ -930,6 +726,9 @@
         transition: all 1s ease;
         margin: 0 0 0 2em;
         text-transform: uppercase;
+        @media screen and (max-width: 700px) {
+            margin: 0;
+        }
     }
     &__proyecto {
         width: 50%;
@@ -937,14 +736,25 @@
         transition: all 1s ease;
         margin: 3em 0 0 0;
         @include flex (column nowrap , center , flex-start);
-        &.activo {
+        &.activoMovil {
             transform: translateY(-40%);
+        }
+        @media screen and (max-width: 700px) {
+            width: 100%;
+            @include flex ( column nowrap , flex-start , center );
+            margin: 0;
+            &.activo {
+                transform: translateY(0);
+            }
         }
     }
     &__index {
         font-size: 1em;
         font-family: var(--fuenteParrafos);
         color: var(--blancoParrafos);
+        @media screen and (max-width: 700px) {
+            margin: 0 0 1em 0;
+        }
     }
     &__h2 {
         font-size: 1.8em;
@@ -960,6 +770,11 @@
         font-family: var(--fuenteParrafos);
         color: var(--blancoParrafos);
         transition: all 1s ease;
+        @media screen and (max-width: 700px) {
+            width: 90%;
+            margin: 1em 0 0 0;
+            text-align: center;
+        }
     }
     &__a {
         font-family: var(--fuenteParrafos);
@@ -981,9 +796,6 @@
             opacity: 1;
             transform: translateY(30%);
         }
-        @media screen and (max-width: 700px) {
-            margin: auto;
-        }
         &:hover {
             transition: all .5s ease;
             color: transparent;
@@ -996,6 +808,14 @@
             0 0 5px var(--colorTextStroke);
             color: transparent;
             border: 1px solid var(--colorTextStroke);
+        }
+        @media screen and (max-width: 700px) {
+            opacity: 1;
+            left: 24%;
+            bottom: -10%;
+            &.activo {
+                transform: translateY(0);
+            }
         }
     }
 }
@@ -1003,7 +823,6 @@
 .filminScroll {
     width: 100%;
     height: 30vh;
-    @include flex ( row nowrap , center , center );
     transition: all 1s linear 1s;
     position: relative;
     margin: 0 0 2em 0;
@@ -1014,9 +833,13 @@
         opacity: 1;
         transform: translateY(0);
     }
+    @media screen and (max-width: 700px) {
+        min-height: 50vh;
+        margin: 0;
+    }
     &__img {
         width: 100%;
-        height: 30vh;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
@@ -1026,12 +849,31 @@
         &.activo {
             opacity: .7;
         }
+        @media screen and (max-width: 700px) {
+            opacity: .7;
+            display: none;
+        }
+    }
+    &__imgMin {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .7;
+        z-index: -1;
+        display: none;
+        @media screen and (max-width:700px) {
+            display: block;
+        }
     }
     &__completo {
         width: 100%;
         height: 30vh;
-        // background-color: red;
         @include flex (row nowrap , flex-start , center);
+        @media screen and (max-width: 700px) {
+            @include flex (column nowrap , center , center );
+        }
     }
     &__diseno {
         width: 50%;
@@ -1041,6 +883,13 @@
         &.activo {
             transform: translateY(-40%);
         }
+        @media screen and (max-width: 700px) {
+            @include flex (column nowrap , center , center );
+            width: 100%;
+            &.activo {
+                transform: translateY(0);
+            }
+        }
     }
     &__h3 {
         font-size: 1.8em;
@@ -1049,6 +898,10 @@
         transition: all 1s ease;
         margin: 0 0 0 2em;
         text-transform: uppercase;
+        @media screen and (max-width: 700px) {
+            margin: 0;
+            font-size: 1.5em;
+        }
     }
     &__proyecto {
         width: 50%;
@@ -1059,11 +912,22 @@
         &.activo {
             transform: translateY(-40%);
         }
+        @media screen and (max-width: 700px) {
+            width: 100%;
+            margin: 0;
+            @include flex ( column nowrap , flex-start , center );
+            &.activo {
+                transform: translateY(0);
+            }
+        }
     }
     &__index {
         font-size: 1em;
         font-family: var(--fuenteParrafos);
         color: var(--blancoParrafos);
+        @media screen and (max-width: 700px) {
+            margin: 0 0 1em 0;
+        }
     }
     &__h2 {
         font-size: 1.8em;
@@ -1079,6 +943,11 @@
         font-family: var(--fuenteParrafos);
         color: var(--blancoParrafos);
         transition: all 1s ease;
+        @media screen and (max-width: 700px) {
+            width: 90%;
+            margin: 1em 0 0 0;
+            text-align: center;
+        }
     }
     &__a {
         font-family: var(--fuenteParrafos);
@@ -1099,9 +968,6 @@
         &.activo {
             opacity: 1;
             transform: translateY(30%);
-        }
-        @media screen and (max-width: 700px) {
-            margin: auto;
         }
         &:hover {
             transition: all .5s ease;
@@ -1116,6 +982,14 @@
             color: transparent;
             border: 1px solid #02ffa1;
         }
+        @media screen and (max-width: 700px) {
+            opacity: 1;
+            left: 24%;
+            bottom: -10%;
+            &.activo {
+                transform: translateY(0);
+            }
+        }
     }
 }
 
@@ -1124,9 +998,12 @@
     height: 4vh;
     max-width: 80em;
     margin: 2em auto 2em auto;
-    // background-color: red;
     @include flex (row nowrap , space-between , center);
-    // text-transform: uppercase;
+    @media screen and (max-width: 700px) {
+        @include flex (column nowrap , center , center);
+        height: 100%;
+        width: 100%;
+    }
     &__correo {
         width: 50%;
         height: 100%;
@@ -1147,6 +1024,12 @@
             margin: 0 1em;
             font-size: 1em;
         }
+        @media screen and (max-width: 700px) {
+            text-align: center;
+            margin: 0;
+            font-size: 1.3em;
+            width: 80%;
+        }
     }
     &__rrss {
         width: 50%;
@@ -1159,6 +1042,9 @@
             opacity: .8;
             transform: translateX(0);
         }
+        @media screen and (max-width: 700px) {
+            @include flex (row nowrap , center , center);
+        }
     }
     &__img {
         width: 100%;
@@ -1168,7 +1054,14 @@
         margin: 0 1em 0 0;
         transition: all .5s ease;
         &.activo {
-            max-width: 3em;
+            max-width: 2.2em;
+        }
+        @media screen and (max-width: 700px) {
+            margin: 2em;
+            transform: translateY(40%);
+            &.activo {
+                max-width: 2em;
+            }
         }
     }
 }

@@ -1,58 +1,49 @@
 'use strict'
 
-const body               = document.querySelector ('#body')
-const cookies            = body.querySelector     ('#cookies')
-const botonCookies       = cookies.querySelector  ('.cookies__button')
-const raton              = body.querySelector     ('.raton')
-const circulos           = body.querySelector     ('.circulos')
-const circulo1           = body.querySelector     ('.circulos__circulo1')
-const circulo2           = body.querySelector     ('.circulos__circulo2')
-const circulo3           = body.querySelector     ('.circulos__circulo3')
-const nav                = body.querySelector     ('#nav')
-const imgNav             = nav.querySelectorAll   ('.nav__img')
-const textoNav           = nav.querySelectorAll   ('.nav__li.texto')
-const inicio             = document.querySelector ('#inicio')
-const h1Inicio           = inicio.querySelector   ('.inicio__h1')
-const h2Inicio           = inicio.querySelector   ('.inicio__h2')
-const about              = body.querySelector     ('#about')
-const estAbout           = about.querySelector    ('.about__estatico')
-const dinAbout           = about.querySelector    ('.about__dinamico')
-const tecnologias        = about.querySelectorAll ('.about__tecnologias')
-const tituAbout          = about.querySelector    ('.about__h2')
-const saludoAbout        = about.querySelector    ('.about__saludo')
-const descAbout          = about.querySelector    ('.about__descripcion')
-const infoAbout          = about.querySelectorAll ('.about__estudios')
-const infoAboutDer       = about.querySelector    ('.about__derecha')
-const trabajos           = body.querySelector     ('#trabajos')
-const tituWork           = trabajos.querySelector ('.trabajos__h2')
-const letsWork           = trabajos.querySelector ('.trabajos__p')
-const lightbox           = body.querySelector     ('#lightbox')
-const botonLight         = lightbox.querySelector ('.lightbox__boton')
-const flechaIzq          = lightbox.querySelector ('.flechaIzq')
-const flechaDer          = lightbox.querySelector ('.flechaDer')
-const portfolio          = body.querySelector     ('.portfolio')
-const enlacePort         = portfolio.querySelector('.portfolio__a')
-const imgPort            = portfolio.querySelector('.portfolio__img')
-const proyectoPort       = portfolio.querySelector('.portfolio__proyecto')
-const disenoPort         = portfolio.querySelector('.portfolio__diseno')
-const footer             = body.querySelector     ('#footer')
-const correoFooter       = footer.querySelector   ('.footer__correo')
-const rrssFooter         = footer.querySelector   ('.footer__rrss')
-const imgFooter          = footer.querySelectorAll('.footer__img')
-const botonMenu          = body.querySelector     ('.boton')
-const menu               = body.querySelector     ('#menu')
-const pestMenuWork       = menu.querySelectorAll  ('.menu__proyecto')
-const pestanaMenu        = menu.querySelectorAll  ('.menu__pestana')
-const portfolioScroll    = body.querySelector     ('.portfolioScroll')
-const disenoPortScroll   = portfolioScroll.querySelector('.portfolioScroll__diseno')
-const proyectoPortScroll = portfolioScroll.querySelector('.portfolioScroll__proyecto')
-const imgPortScroll      = portfolioScroll.querySelector('.portfolioScroll__img')
-const enlacePortScroll   = portfolioScroll.querySelector('.portfolioScroll__a')
-const filminScroll       = body.querySelector('.filminScroll')
-const disenoFilmScroll   = filminScroll.querySelector('.filminScroll__diseno')
-const proyectoFilmScroll = filminScroll.querySelector('.filminScroll__proyecto')
-const imgFilmScroll      = filminScroll.querySelector('.filminScroll__img')
-const enlaceFilmScroll   = filminScroll.querySelector('.filminScroll__a')
+const body               = document.       querySelector   ('#body')
+const cookies            = body.           querySelector   ('#cookies')
+const botonCookies       = cookies.        querySelector   ('.cookies__button')
+const raton              = body.           querySelector   ('.raton')
+const circulos           = body.           querySelector   ('.circulos')
+const circulo1           = body.           querySelector   ('.circulos__circulo1')
+const circulo2           = body.           querySelector   ('.circulos__circulo2')
+const circulo3           = body.           querySelector   ('.circulos__circulo3')
+const nav                = body.           querySelector   ('#nav')
+const imgNav             = nav.            querySelectorAll('.nav__img')
+const textoNav           = nav.            querySelectorAll('.nav__li.texto')
+const inicio             = document.       querySelector   ('#inicio')
+const h1Inicio           = inicio.         querySelector   ('.inicio__h1')
+const h2Inicio           = inicio.         querySelector   ('.inicio__h2')
+const about              = body.           querySelector   ('#about')
+const estAbout           = about.          querySelector   ('.about__estatico')
+const dinAbout           = about.          querySelector   ('.about__dinamico')
+const tecnologias        = about.          querySelectorAll('.about__tecnologias')
+const tituAbout          = about.          querySelector   ('.about__h2')
+const saludoAbout        = about.          querySelector   ('.about__saludo')
+const descAbout          = about.          querySelector   ('.about__descripcion')
+const infoAbout          = about.          querySelectorAll('.about__estudios')
+const infoAboutDer       = about.          querySelector   ('.about__derecha')
+const trabajos           = body.           querySelector   ('#trabajos')
+const tituWork           = trabajos.       querySelector   ('.trabajos__h2')
+const footer             = body.           querySelector   ('#footer')
+const correoFooter       = footer.         querySelector   ('.footer__correo')
+const rrssFooter         = footer.         querySelector   ('.footer__rrss')
+const imgFooter          = footer.         querySelectorAll('.footer__img')
+const botonMenu          = body.           querySelector   ('.boton')
+const menu               = body.           querySelector   ('#menu')
+const pestMenuWork       = menu.           querySelector   ('.menu__proyecto')
+const pestMenuContact    = menu.           querySelector   ('.menu__proyectoContacto')
+const pestanaMenu        = menu.           querySelectorAll('.menu__pestana')
+const portfolioScroll    = body.           querySelector   ('.portfolioScroll')
+const disenoPortScroll   = portfolioScroll.querySelector   ('.portfolioScroll__diseno')
+const proyectoPortScroll = portfolioScroll.querySelector   ('.portfolioScroll__proyecto')
+const imgPortScroll      = portfolioScroll.querySelector   ('.portfolioScroll__img')
+const enlacePortScroll   = portfolioScroll.querySelector   ('.portfolioScroll__a')
+const filminScroll       = body.           querySelector   ('.filminScroll')
+const disenoFilmScroll   = filminScroll.   querySelector   ('.filminScroll__diseno')
+const proyectoFilmScroll = filminScroll.   querySelector   ('.filminScroll__proyecto')
+const imgFilmScroll      = filminScroll.   querySelector   ('.filminScroll__img')
+const enlaceFilmScroll   = filminScroll.   querySelector   ('.filminScroll__a')
 
 let efectoScroll  = (elemento) => {
     window.addEventListener('scroll', () => {
@@ -158,6 +149,22 @@ let efectoScrollVuelta2 = (elemento) => {
     })
 }
 
+let efectoScrollMovil = (elemento) => {
+    window.addEventListener('scroll', () => {
+        let pixel10    = window.scrollY
+        let distElem10 = window.innerHeight
+        let altV10     = (elemento.offsetTop === 0) ? elemento.offsetParent.offsetTop : elemento.offsetTop
+    
+        let calculo10 = distElem10 - (altV10 / 1.5)
+    
+        if (pixel10 >= calculo10) {
+            elemento.classList.add('activoMovil')
+        } else {
+            elemento.classList.remove('activoMovil')
+        }
+    })
+}
+
 let efectoRaton = (elemento) => {
     elemento.addEventListener('mouseover', () => {
         raton.classList.add('activo')
@@ -169,6 +176,8 @@ let efectoRaton1 = (elemento) => {
         raton.classList.remove('activo')
     })
 }
+
+efectoScrollMovil(imgPortScroll)
 
 efectoScroll(portfolioScroll)
 
@@ -185,8 +194,6 @@ efectoScrollVuelta(saludoAbout)
 efectoScroll(tituAbout)
 
 efectoScroll(tituWork)
-
-efectoScroll(letsWork)
 
 efectoScroll(estAbout)
 
@@ -208,21 +215,9 @@ efectoRaton(correoFooter)
 
 efectoRaton(rrssFooter)
 
-efectoRaton(enlacePort)
-
-efectoRaton(flechaIzq)
-
-efectoRaton(flechaDer)
-
 efectoRaton1(correoFooter)
 
 efectoRaton1(rrssFooter)
-
-efectoRaton1(enlacePort)
-
-efectoRaton1(flechaIzq)
-
-efectoRaton1(flechaDer)
 
 infoAbout.forEach(( v , i ) => {
     efectoScroll2(infoAbout[i])
@@ -275,99 +270,26 @@ imgFooter.forEach((v , i ) => {
 
 pestanaMenu.forEach(( v , i ) => {
     pestanaMenu[i].addEventListener('mouseover', () => {
-        pestMenuWork[i].classList.add('activo')
+        pestMenuWork.classList.add('activo')
+        pestMenuContact.classList.add('activo')
     })
 })
 
 pestanaMenu.forEach(( v , i ) => {
     pestanaMenu[i].addEventListener('mouseout', () => {
-        pestMenuWork[i].classList.remove('activo')
+        pestMenuWork.classList.remove('activo')
+        pestMenuContact.classList.remove('activo')
     })
-})
-
-portfolio.addEventListener('mouseover', () => {
-    imgPort.classList.add('activo')
-    circulo2.classList.remove('activoLight')
-})
-
-portfolio.addEventListener('mouseout', () => {
-    imgPort.classList.remove('activo')
-    circulo2.classList.add('activoLight')
-})
-
-window.addEventListener('scroll', () => {
-    let pixel3    = window.scrollY
-    let distElem3 = window.innerHeight
-    let altV3     = tituAbout.offsetTop
-
-    let calculo3  = distElem3 - (altV3 / 9)
-
-    if (pixel3 >= calculo3 ) {
-        nav.classList.add('activo')
-    } else {
-        nav.classList.remove('activo')
-    }
 })
 
 window.addEventListener('mousemove', (e) => {
     raton.style.transform = `translateY(${e.clientY}px) translateX(${e.clientX}px)`
 })
 
-letsWork.addEventListener('click', () => {
-    lightbox.classList.add('activo')
-    portfolio.classList.add('activo')
-    circulo2.classList.add('activoLight')
-    descAbout.classList.add('activo')
-    portfolioScroll.classList.remove('activo')
-    filminScroll.classList.remove('activo')
-})
-
-botonLight.addEventListener('click', () => {
-    lightbox.classList.remove('activo')
-    portfolio.classList.remove('activo')
-    circulo2.classList.remove('activoLight')
-    descAbout.classList.remove('activo')
-    portfolioScroll.classList.add('activo')
-    filminScroll.classList.add('activo')
-})
-
-botonLight.addEventListener('mouseover', () => {
-    raton.classList.add('activo')
-    botonLight.classList.add('activo')
-})
-
-botonLight.addEventListener('mouseout', () => {
-    raton.classList.remove('activo')
-    botonLight.classList.remove('activo')
-})
-
 window.addEventListener('scroll', () => {
-    let pixel5    = window.scrollY
-    let distElem5 = window.innerHeight
-    let altV5     = (letsWork.offsetTop === 0) ? tituWork.offsetTop : letsWork.offsetTop
-
-    let calculo5  = distElem5 - (altV5 / 1.5)
-
-    if (pixel5 >= calculo5) {
-        letsWork.classList.add('activo')
-    }
-
-})
-
-letsWork.addEventListener('mouseover', () => {
-    raton.classList.add('activo')
-    circulo2.classList.add('activoLight')
-})
-
-letsWork.addEventListener('mouseout', () => {
-    raton.classList.remove('activo')
-    circulo2.classList.remove('activoLight')
-})
-
-window.addEventListener('scroll', () => {
-    let pixel6 = window.scrollY
+    let pixel6    = window.scrollY
     let distElem6 = window.innerHeight
-    let altV6 = tituAbout.offsetTop
+    let altV6     = tituAbout.offsetTop
 
     let calculo6 = distElem6 - (altV6 / 1.5)
 
@@ -387,18 +309,6 @@ botonMenu.addEventListener('click', () => {
 // botonCookies.addEventListener('click', () => {
 //     cookies.classList.add('activo')
 // })
-
-portfolio.addEventListener('mouseover', () => {
-    enlacePort.classList.add('activo')
-    proyectoPort.classList.add('activo')
-    disenoPort.classList.add('activo')
-})
-
-portfolio.addEventListener('mouseout', () => {
-    enlacePort.classList.remove('activo')
-    proyectoPort.classList.remove('activo')
-    disenoPort.classList.remove('activo')
-})
 
 portfolioScroll.addEventListener('mouseover', () => {
     imgPortScroll.classList.add('activo')
@@ -432,15 +342,6 @@ filminScroll.addEventListener('mouseout', () => {
     circulo2.classList.remove('activoFilmin')
 })
 
-
-// Slider
-
-// const slider = document.querySelector('.lightbox__slider')
-// const flechaIzq = document.querySelector('.flechaIzq')
-// const flechaDer = document.querySelector('.flechaDer')
-// const filmin = document.querySelector('.filmin')
-
-let foto = 0
 
 
 
