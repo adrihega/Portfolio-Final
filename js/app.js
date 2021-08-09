@@ -3,7 +3,6 @@
 const body               = document.       querySelector   ('#body')
 const cookies            = body.           querySelector   ('#cookies')
 const botonCookies       = cookies.        querySelector   ('.cookies__button')
-console.log(botonCookies)
 const raton              = body.           querySelector   ('.raton')
 const circulos           = body.           querySelector   ('.circulos')
 const circulo1           = body.           querySelector   ('.circulos__circulo1')
