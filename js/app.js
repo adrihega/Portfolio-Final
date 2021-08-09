@@ -1,8 +1,8 @@
 'use strict'
 
 const body               = document.       querySelector   ('#body')
-const cookies            = body.           querySelector   ('#cookies')
-const botonCookies       = cookies.        querySelector   ('.cookies__button')
+// const cookies            = body.           querySelector   ('#cookies')
+// const botonCookies       = cookies.        querySelector   ('.cookies__button')
 const raton              = body.           querySelector   ('.raton')
 const circulos           = body.           querySelector   ('.circulos')
 const circulo1           = body.           querySelector   ('.circulos__circulo1')
@@ -36,6 +36,7 @@ const pestMenuWork       = menu.           querySelector   ('.menu__proyecto')
 const pestMenuContact    = menu.           querySelector   ('.menu__proyectoContacto')
 const pestanaMenuWork    = menu.           querySelector   ('.menu__pestanaWork')
 const pestanaMenuContact = menu.           querySelector   ('.menu__pestanaContacto')
+const aboutMenu          = menu.           querySelectorAll('.menu__li')
 const portfolioScroll    = body.           querySelector   ('.portfolioScroll')
 const disenoPortScroll   = portfolioScroll.querySelector   ('.portfolioScroll__diseno')
 const proyectoPortScroll = portfolioScroll.querySelector   ('.portfolioScroll__proyecto')
@@ -234,6 +235,7 @@ tecnologias.forEach(( v , i ) => {
 imgNav.forEach(( v , i ) => {
     imgNav[i].addEventListener('mouseover', () => {
         imgNav[i].classList.add('activo')
+        circulo2.classList.add('activoLight')
         raton.classList.add('activo')
     })
 })
@@ -241,6 +243,7 @@ imgNav.forEach(( v , i ) => {
 imgNav.forEach(( v , i ) => {
     imgNav[i].addEventListener('mouseout', () => {
         imgNav[i].classList.remove('activo')
+        circulo2.classList.remove('activoLight')
         raton.classList.remove('activo')
     })
 })
@@ -249,6 +252,7 @@ textoNav.forEach(( v , i ) => {
     textoNav[i].addEventListener('mouseover', () => {
         textoNav[i].classList.add('activo')
         raton.classList.add('activo')
+        circulo2.classList.add('activoLight')
     })
 })
 
@@ -256,7 +260,7 @@ textoNav.forEach(( v , i ) => {
     textoNav[i].addEventListener('mouseout', () => {
         textoNav[i].classList.remove('activo')
         raton.classList.remove('activo')
-        circulo2.classList.remove('activo')
+        circulo2.classList.remove('activoLight')
     })
 })
 
@@ -267,6 +271,12 @@ imgFooter.forEach((v , i ) => {
 
     imgFooter[i].addEventListener('mouseout', () => {
         imgFooter[i].classList.remove('activo')
+    })
+})
+
+aboutMenu.forEach(( v , i ) => {
+    botonMenu.addEventListener('click', () => {
+        aboutMenu[i].classList.toggle('activo')
     })
 })
 
@@ -290,6 +300,7 @@ enlaceMenu.forEach((v,i)=> {
     enlaceMenu[i].addEventListener('click', () => {
         menu.classList.remove('activo')
         botonMenu.classList.remove('activo')
+        aboutMenu[i].classList.remove('activo')
     })
 })
 
@@ -327,11 +338,13 @@ window.addEventListener('scroll', () => {
 botonMenu.addEventListener('click', () => {
     menu.classList.toggle('activo')
     botonMenu.classList.toggle('activo')
+    pestanaMenuWork.classList.toggle('activo')
+    pestanaMenuContact.classList.toggle('activo')
 })
 
-botonCookies.addEventListener('click', () => {
-    cookies.classList.add('activo')
-})
+// botonCookies.addEventListener('click', () => {
+//     cookies.classList.add('activo')
+// })
 
 portfolioScroll.addEventListener('mouseover', () => {
     imgPortScroll.classList.add('activo')
