@@ -1,8 +1,9 @@
 'use strict'
 
 const body               = document.       querySelector   ('#body')
-// const cookies            = body.           querySelector   ('#cookies')
-// const botonCookies       = cookies.        querySelector   ('.cookies__button')
+const cookies            = body.           querySelector   ('#cookies')
+const botonCookies       = cookies.        querySelector   ('.cookies__button')
+console.log(botonCookies)
 const raton              = body.           querySelector   ('.raton')
 const circulos           = body.           querySelector   ('.circulos')
 const circulo1           = body.           querySelector   ('.circulos__circulo1')
@@ -11,7 +12,7 @@ const circulo3           = body.           querySelector   ('.circulos__circulo3
 const nav                = body.           querySelector   ('#nav')
 const imgNav             = nav.            querySelectorAll('.nav__img')
 const textoNav           = nav.            querySelectorAll('.nav__li.texto')
-const inicio             = body.       querySelector   ('#inicio')
+const inicio             = body.           querySelector   ('#inicio')
 const h1Inicio           = inicio.         querySelector   ('.inicio__h1')
 const h2Inicio           = inicio.         querySelector   ('.inicio__h2')
 const about              = body.           querySelector   ('#about')
@@ -342,9 +343,9 @@ botonMenu.addEventListener('click', () => {
     pestanaMenuContact.classList.toggle('activo')
 })
 
-// botonCookies.addEventListener('click', () => {
-//     cookies.classList.add('activo')
-// })
+botonCookies.addEventListener('click', () => {
+    cookies.classList.add('activo')
+})
 
 portfolioScroll.addEventListener('mouseover', () => {
     imgPortScroll.classList.add('activo')
